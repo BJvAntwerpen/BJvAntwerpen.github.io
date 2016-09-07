@@ -1,0 +1,5 @@
+body {background-color: darkturquoise;}
+h1, h2 {color: dodgerblue; border: 4px dotted forestgreen; border-bottom-style: solid;}
+p {font-size: 20px;}
+img {float: right;}
+.center {text-align: center;}
