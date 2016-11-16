@@ -240,6 +240,7 @@ function actionBasementKey() {
 
 function Start() {
 	document.getElementById('music1').play();
+	document.getElementById('musicStart').pause();
 	document.getElementById('story1').innerHTML = "hOI!!";
 	document.getElementById('story2').innerHTML = "Welcom t: DA TEM ADVENTURE GAME!<br>U r a Tem but u 4got your name."
 	document.getElementById('storyLine').style.backgroundImage = "url('img/Temmie.png')";
