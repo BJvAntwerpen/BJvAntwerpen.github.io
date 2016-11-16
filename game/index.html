@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>De adventure game</title>
+	<script src="adventure game js.js" type="text/javascript"></script>
+	<link rel="stylesheet" type="text/css" href="adventure game css.css">
+</head>
+<body>
+<audio id="music1" loop="true">
+	<source id="song1" src="mus/temVillage.ogg" type="audio/ogg">
+</audio>
+
+<audio id="music2" loop="true">
+	<source id="song2" src="mus/temShop.ogg" type="audio/ogg">
+</audio>
+<h1 id="locatie">Location: House</h1>
+
+<div id="storyLine">
+	<p id="story1">Adventure Game</p>
+	<p id="story2">Just click the buttons.<br>
+	you do need certain items to reach certain places.<br>
+	Hover over the buttons in the shop to see the prices.</p>
+</div>
+
+<div id="Menu"></div>
+<p class="textConfirmReset" id="textConfirmReset">r u sure thoit u want t restart?<br>only use thois if u r stuck</p>
+<button class="buttonConfirmReset" id="confirmResetTrue" type="button" onclick="reset();">yes</button>
+<button class="buttonConfirmReset" id="confirmResetFalse" type="button" onclick="openMenu();">NO</button>
+<p id="shopInfo"></p>
+<ul class="list" id="itemList">
+	<li class="listLine" id="items">Items:</li>
+	<li class="listLine" id="item1"></li>
+	<li class="listLine" id="item2"></li>
+	<li class="listLine" id="item3"></li>
+	<li class="listLine" id="item4"></li>
+	<li class="listLine" id="item5"></li>
+	<li class="listLine" id="itemMuns"></li>
+</ul>
+<button class="buttonReset" id="buttonReset" type="button" onclick="confirmReset();">RESTART?</button>
+
+<button class="tooltip" id="buyItem1" type="button" onclick="buyBoat();"><span class="tooltiptext">costs: 400G</span>Boat</button>
+
+<button class="tooltip" id="sellItem1" type="button" onclick="sellDogSalad(300);"><span class="tooltiptext">gives: 300G</span>Dog salad</button>
+
+<button class="tooltip" id="sellCItem1" type="button" onclick="sellDogSalad(350);"><span class="tooltiptext">gives: 350G</span>Dog salad</button>
+
+<button class="buttonLeft" id="buttonWoud" type="button" onclick="toDeurWoud();">FORest</button>
+<button class="buttonRight" id="buttonGang" type="button" onclick="toGang();">HallwAy</button>
+<button class="buttonTop" id="buttonKeuken" type="button" onclick="toKeuken();">KitCheN</button>
+<button class="buttonBottom" id="buttonStart" type="button" onclick="Start();">Start</button>
+<button class="buttonBottom" id="buttonNext" type="button" onclick="Story();">Next</button>
+<button class="buttonBottom" id="buttonHuis" type="button" onclick="toHuis();">House</button>
+<button class="buttonLeft" id="buttonBadkamer" type="button" onclick="toBadkamer();">BAThroOM</button>
+<button class="buttonRight" id="buttonSlaapkamer" type="button" onclick="toSlaapkamer();">BedrooM</button>
+<button class="buttonTop" id="buttonKelder" type="button" onclick="toDeurKelder();">bAsEMENt</button>
+<button class="buttonLeft" id="buttonSecretShop" type="button" onclick="secretShop();">secret Temshop</button>
+<button class="buttonBottom" id="buttonLeaveSecretShop" type="button" onclick="leaveShop();"></button>
+<button class="buttonTopRight" id="buttonMenuOpen" type="button" onclick="openMenu();">MENU</button>
+<button class="buttonTopRight" id="buttonMenuClose" type="button" onclick="closeMenu();">CLOSE</button>
+<button id="actionFrontdoorKey" type="button" onclick="actionFrontdoorKey();">Key</button>
+<button class="buttonLeft" id="buttonStrand" type="button" onclick="toStrand();">Da beACh</button>
+<button class="buttonRight" id="buttonZee" type="button" onclick="toZee();">Da SeA</button>
+<button class="buttonRight" id="buttonTemVillage" type="button" onclick="toTemVillage();">Tem ViLLaGe</button>
+<button class="buttonTop" id="buttonHut1Pie" type="button" onclick="toHut1Pie();">Hut 1</button>
+<button class="buttonTop" id="buttonHut1" type="button" onclick="toHut1();">Hut 1</button>
+<button class="buttonBottom" id="buttonHut2" type="button" onclick="toHut2();">Hut 2</button>
+<button class="buttonRight" id="buttonTemShop" type="button" onclick="toTemShop();">Tem Shop</button>
+<button class="buttonBottom" id="buttonBackTemVillage" type="button" onclick="backTemVillage();">BaCK tO TeM ViLLaGe</button>
+<button class="buttonBottom" id="buttonGameOver" type="button" onclick="reset();">Restart</button>
+<button class="buttonTop" id="buttonMountain" type="button" onclick="toMountain();">MoAntan</button>
+<button class="buttonTop" id="buttonVolcano" type="button" onclick="toVolcano();">VOlcanO</button>
+<button class="buttonRight" id="buttonCastle" type="button" onclick="toCastle();">CaSTLe</button>
+<button class="buttonBottom" id="buttonCave" type="button" onclick="toCave();">Cave</button>
+<button id="Muns" type="button" onclick="getMuns();">Muns</button>
+<button id="Pie" type="button" onclick="getPie();">Pie</button>
+<button id="actionBasementKey" type="button" onclick="actionBasementKey();">Key</button>
+<button id="dogSalad" type="button" onclick="dog_Salad();">Open</button>
+<button class="buttonLeft" id="buttonNormalBuy" type="button" onclick="Buy('normal');">Buy</button>
+<button class="buttonLeft" id="buttonSecretBuy" type="button" onclick="Buy('secret');">Buy</button>
+<button class="buttonRight" id="buttonNormalSell" type="button" onclick="Sell('normal');">Sell</button>
+<button class="buttonRight" id="buttonSecretSell" type="button" onclick="Sell('secret');">Sell</button>
+<button class="buttonBottom" id="buttonBackNormal" type="button" onclick="backTemShop('normal');">Back</button>
+<button class="buttonBottom" id="buttonBackSecret" type="button" onclick="backTemShop('secret');">Back</button>
+<button class="buttonBottom" id="buttonSeaBoat" type="button" onclick="seaBoat();">Da Sea with boat</button>
+<button class="buttonBottom" id="buttonJumpVolcano" type="button" onclick="jumpVolcano();">Jump in</button>
+
+</body>
+</html>
