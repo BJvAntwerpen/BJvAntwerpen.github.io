@@ -659,7 +659,7 @@ function Sell(plek) {
 	} else if (plek == 'secret') {
 		document.getElementById('buttonSecretBuy').style.display = "none";
 		document.getElementById('buttonSecretSell').style.display = "none";
-		document.getElementById('buttonKelder').style.display = "none";
+		document.getElementById('buttonBackBasement').style.display = "none";
 		document.getElementById('sellCItem1').style.display = "inline";
 		document.getElementById('buttonBackSecret').style.display = "inline";
 	}
@@ -699,7 +699,7 @@ function backTemShop(plek) {
 	} else if (plek == 'secret') {
 		document.getElementById('buttonSecretSell').style.display = "inline";
 		document.getElementById('buttonSecretBuy').style.display = "inline";
-		document.getElementById('buttonKelder').style.display = "inline";
+		document.getElementById('buttonBackBasement').style.display = "inline";
 		document.getElementById('buyItem1').style.display = "none";
 		document.getElementById('sellCItem1').style.display = "none";
 		document.getElementById('buttonBackSecret').style.display = "none";
