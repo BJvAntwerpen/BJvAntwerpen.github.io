@@ -507,14 +507,18 @@ function toStrand() {
 }
 
 function toZee() {
-	console.log('Player goes to "Da sea"');
-	document.getElementById('buttonWoud').style.display = "none";
-	document.getElementById('buttonZee').style.display = "none";
-	document.getElementById('buttonSeaBoat').style.display = "none";
-	document.getElementById('buttonMenuOpen').style.display = "none";
-	document.getElementById('locatie').innerHTML = "Location: Da sea";
-	document.getElementById('story1').innerHTML = "U start t swim";
-	setTimeout(zeeGameOver, 3000)
+	if (items.boat == true) {
+		document.getElementById('story1').innerHTML = "THa ROCks r toO pOiNty To PLacE tHa boAt oN";
+	} else {
+		console.log('Player goes to "Da sea"');
+		document.getElementById('buttonWoud').style.display = "none";
+		document.getElementById('buttonZee').style.display = "none";
+		document.getElementById('buttonSeaBoat').style.display = "none";
+		document.getElementById('buttonMenuOpen').style.display = "none";
+		document.getElementById('locatie').innerHTML = "Location: Da sea";
+		document.getElementById('story1').innerHTML = "U start t swim";
+		setTimeout(zeeGameOver, 3000)
+	}
 }
 
 function zeeGameOver() {
