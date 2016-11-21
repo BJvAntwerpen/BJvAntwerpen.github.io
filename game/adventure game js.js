@@ -203,7 +203,7 @@ function closeMenu() {
 	} else if (Location == "Volcano") {
 		document.getElementById('buttonMountain').style.display = "inline";
 	} else if (Location == "secret Temshop") {
-		document.getElementById('buttonKelder').style.display = "inline";
+		document.getElementById('buttonBackBasement').style.display = "inline";
 		document.getElementById('buttonSecretBuy').style.display = "inline";
 		document.getElementById('buttonSecretSell').style.display = "inline";
 	}
