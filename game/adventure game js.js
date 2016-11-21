@@ -189,8 +189,9 @@ function closeMenu() {
 		document.getElementById('buttonCave').style.display = "inline";
 	} else if (Location == "Cave") {
 		document.getElementById('buttonMountain').style.display = "inline";
-	} else if (Location == "Castle") {
+	} else if (Location == "entranceCastle") {
 		document.getElementById('buttonMountain').style.display = "inline";
+		document.getElementById('buttonEnterCastle').style.display = "inline";
 	} else if (Location == "Hut 1") {
 		document.getElementById('buttonTemVillage').style.display = "inline";
 		if (items.kelderKey == true) {
@@ -206,6 +207,11 @@ function closeMenu() {
 		document.getElementById('buttonBackBasement').style.display = "inline";
 		document.getElementById('buttonSecretBuy').style.display = "inline";
 		document.getElementById('buttonSecretSell').style.display = "inline";
+	} else if (Location == "Castle") {
+		document.getElementById('buttonCastle').style.display = "inline";
+		document.getElementById('buttonGoldenFlowerField').style.display = "inline";
+	} else if (Location == "golden flower field") {
+		document.getElementById('buttonEnterCastle').style.display = "inline";
 	}
 }
 
@@ -728,6 +734,7 @@ function toMountain() {
 	document.getElementById('buttonTemVillage').style.display = "none";
 	document.getElementById('buttonHuis').style.display = "none";
 	document.getElementById('buttonJumpVolcano').style.display = "none";
+	document.getElementById('buttonEnterCastle').style.display = "none";
 	document.getElementById('buttonWoud').style.display = "inline";
 	document.getElementById('buttonVolcano').style.display = "inline";
 	document.getElementById('buttonCave').style.display = "inline";
@@ -748,16 +755,18 @@ function toCave() {
 }
 
 function toCastle() {
-	Location = "Castle";
-	console.log('Player goes to "Castle"');
+	Location = "entranceCastle";
+	console.log('Player goes to "Entrance castle"');
 	document.getElementById('locatie').style.color = "white";
 	document.body.style.backgroundImage = "url('img/Castle.jpg')";
-	document.getElementById('locatie').innerHTML = "Location: Castle";
+	document.getElementById('locatie').innerHTML = "Location: Entrance castle";
 	document.getElementById('buttonCave').style.display = "none";
 	document.getElementById('buttonVolcano').style.display = "none";
 	document.getElementById('buttonCastle').style.display = "none";
 	document.getElementById('buttonWoud').style.display = "none";
+	document.getElementById('buttonGoldenFlowerField').style.display = "none";
 	document.getElementById('buttonMountain').style.display = "inline";
+	document.getElementById('buttonEnterCastle').style.display = "inline";
 }
 
 function toVolcano() {
@@ -792,4 +801,27 @@ function jumpVolcano() {
 	document.getElementById('musicGameOver').play();
 	document.getElementById('story1').innerHTML = "U jUmPed in tHa vOlCano. u diED";
 	document.getElementById('story2').innerHTML = "DiD u SEriOuSly juST Jump in ThA VOLCAnO?<br>WHY wOuld u JUmp iN tHa vOLcano";
+}
+
+function enterCastle() {
+	document.getElementById('story1').innerHTML = "Sorry, but this way is work in progress";
+	setTimeout(clear, 3000);
+	/*
+	Location = "Castle";
+	document.getElementById('locatie').innerHTML = "Location: Castle";
+	document.getElementById('locatie').style.color = "black";
+	document.getElementById('buttonEnterCastle').style.display = "none";
+	document.getElementById('buttonMountain').style.display = "none";
+	document.getElementById('buttonCastle').style.display = "inline";
+	document.getElementById('buttonGoldenFlowerField').style.display = "inline";
+	document.body.style.backgroundImage = "";
+	document.body.style.backgroundColor = "fuchsia";*/
+}
+
+function toGoldenFlowerField() {
+	Location = "golden flower field";
+	document.getElementById('locatie').innerHTML = "Location: Golden flower field";
+	document.getElementById('buttonGoldenFlowerField').style.display = "none";
+	document.getElementById('buttonCastle').style.display = "none";
+	document.getElementById('buttonEnterCastle').style.display = "inline";
 }
