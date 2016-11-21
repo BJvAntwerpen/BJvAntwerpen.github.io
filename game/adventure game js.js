@@ -804,9 +804,6 @@ function jumpVolcano() {
 }
 
 function enterCastle() {
-	document.getElementById('story1').innerHTML = "Sorry, but this way is work in progress";
-	setTimeout(clear, 3000);
-	/*
 	Location = "Castle";
 	document.getElementById('locatie').innerHTML = "Location: Castle";
 	document.getElementById('locatie').style.color = "black";
@@ -815,7 +812,7 @@ function enterCastle() {
 	document.getElementById('buttonCastle').style.display = "inline";
 	document.getElementById('buttonGoldenFlowerField').style.display = "inline";
 	document.body.style.backgroundImage = "";
-	document.body.style.backgroundColor = "fuchsia";*/
+	document.body.style.backgroundColor = "fuchsia";
 }
 
 function toGoldenFlowerField() {
