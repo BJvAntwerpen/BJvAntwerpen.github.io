@@ -414,13 +414,27 @@ function toKelder() {
 	document.body.style.backgroundColor = "blue";
 }
 
+function backBasement() {
+	document.getElementById('buttonBackBasement').style.display = "none";
+	document.getElementById('buttonSecretSell').style.display = "none";
+	document.getElementById('buttonSecretBuy').style.display = "none";
+	document.body.style.backgroundImage = "";
+	document.body.style.backgroundColor = "blue";
+	document.getElementById('buttonSecretShop').style.display = "inline";
+	document.getElementById('buttonGang').style.display = "inline";
+	document.getElementById('locatie').innerHTML = "Location: Basement";
+	document.getElementById('music2').pause();
+	document.getElementById('music2').currentTime = 0;
+	document.getElementById('music1').play();
+}
+
 function secretShop() {
 	Location = "secret Temshop";
 	document.body.style.backgroundImage = "url('img/TemmieInWall.png')";
 	document.getElementById('locatie').innerHTML = "Location: secret Temshop";
 	document.getElementById('locatie').style.color = "white";
 	document.body.style.backgroundColor = "gray";
-	document.getElementById('buttonKelder').style.display = "inline";
+	document.getElementById('buttonBackBasement').style.display = "inline";
 	document.getElementById('buttonSecretShop').style.display = "none";
 	document.getElementById('buttonGang').style.display = "none";
 	document.getElementById('buttonSecretBuy').style.display = "inline";
@@ -503,6 +517,8 @@ function zeeGameOver() {
 	document.getElementById('storyLine').style.backgroundPosition = "0px 0px";
 	document.getElementById('buttonMenuOpen').style.display = "none";
 	document.getElementById('buttonGameOver').style.display = "inline";
+	document.getElementById('musicGameOver').play();
+	document.getElementById('music1').pause();
 	document.getElementById('story1').innerHTML = "u gOt Eaten By A shARk ";
 	document.getElementById('story2').innerHTML = "gaME OvEr<br>MAybE SOMeTINg lIKe A boaT mAy hElP";
 }
@@ -761,8 +777,8 @@ function seaBoat() {
 	document.getElementById('buttonZee').style.display = "none";
 	document.getElementById('buttonSeaBoat').style.display = "none";
 	document.getElementById('buttonWoud').style.display = "none";
-	document.getElementById('story1').innerHTML = "U WIN yAY<br>u wAnt To PlAy AgAIN?";
-	document.getElementById('buttonGameOver').style.display = "inline";
+	document.getElementById('story1').innerHTML = "Tem: TEm wOulD likE u to plAY wiTh Tem AGAin.<br>wOuld u Like To plAy agAin?";
+	document.getElementById('buttonPlayAgain').style.display = "inline";
 	document.getElementById('locatie').style.display = "none";
 	document.getElementById('buttonMenuOpen').style.display = "none";
 }
@@ -772,6 +788,8 @@ function jumpVolcano() {
 	document.getElementById('buttonMenuOpen').style.display = "none";
 	document.getElementById('buttonJumpVolcano').style.display = "none";
 	document.getElementById('buttonGameOver').style.display = "inline";
+	document.getElementById('music1').pause();
+	document.getElementById('musicGameOver').play();
 	document.getElementById('story1').innerHTML = "U jUmPed in tHa vOlCano. u diED";
 	document.getElementById('story2').innerHTML = "DiD u SEriOuSly juST Jump in ThA VOLCAnO?<br>WHY wOuld u JUmp iN tHa vOLcano";
 }
