@@ -664,6 +664,7 @@ function Buy(plek) {
 		document.getElementById('buttonBackTemVillage').style.display = "none";
 		document.getElementById('buttonBackNormal').style.display = "inline";
 		document.getElementById('buyItem1').style.display = "inline";
+		document.getElementById('buyItem2').style.display = "inline";
 	} else if (plek == 'secret') {
 		document.getElementById('story1').innerHTML = "Tem: Tem hAVe no ItemS tO SeLl";
 		setTimeout(clear, 3000);
@@ -673,6 +674,11 @@ function Buy(plek) {
 	} else {
 		document.getElementById('buyItem1').style.backgroundColor = "red";
 	}
+	if (items.Muns >= 200 && items.wateringCan == false) {
+		document.getElementById('buyItem2').style.backgroundColor = "green";
+	} else {
+		document.getElementById('buyItem2').style.backgroundColor = "red";
+	}
 	itemsInfo.boatInfo = true;
 }
 
@@ -680,11 +686,28 @@ function buyBoat() {
 	if (items.Muns >= 400 && items.boat == false) {
 		items.boat = true;
 		items.Muns -= 400;
-		console.log('Player bought a "boat"')
+		console.log('Player bought a "boat"');
 		document.getElementById('buyItem1').style.backgroundColor = "red";
 		document.getElementById('shopInfo').innerHTML = "Tem: t!!!! FoR buyn thA BoAt";
 		setTimeout(clear, 3000);
 	} else if (items.boat == true) {
+		document.getElementById('shopInfo').innerHTML = "Tem: mAkE sPace for ThAd iTeM";
+		setTimeout(clear, 3000);
+	} else {
+		document.getElementById('shopInfo').innerHTML = "Tem: bring more muns";
+		setTimeout(clear, 3000);
+	}
+}
+
+function buyWateringCan() {
+	if (items.Muns >= 200 && items.wateringCan == false) {
+		items.wateringCan = true;
+		items.Muns -= 200;
+		console.log('Player bought a "watering can"');
+		document.getElementById('buyItem2').style.backgroundColor = "red";
+		document.getElementById('shopInfo').innerHTML = "Tem: t!!!! For buyIng thA WateriNG Can";
+		setTimeout(clear, 3000);
+	} else if (items.wateringCan == true) {
 		document.getElementById('shopInfo').innerHTML = "Tem: mAkE sPace for ThAd iTeM";
 		setTimeout(clear, 3000);
 	} else {
@@ -740,6 +763,7 @@ function backTemShop(plek) {
 		document.getElementById('buttonBackTemVillage').style.display = "inline";
 		document.getElementById('buttonBackNormal').style.display = "none";
 		document.getElementById('buyItem1').style.display = "none";
+		document.getElementById('buyItem2').style.display = "none";
 		document.getElementById('sellItem1').style.display = "none";
 	} else if (plek == 'secret') {
 		document.getElementById('buttonSecretSell').style.display = "inline";
