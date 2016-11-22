@@ -125,8 +125,18 @@ h1 {
 
 #buttonWaterFlowers {
 	position: absolute;
-	top: 50%;
-	left: 50%;
+	top: 30%;
+	left: 30%;
+	border-radius: 50%;
+	border: 1px solid black;
+	width: 50px;
+	height: 50px;
+}
+
+#buttonRepeatCode {
+	position: absolute;
+	top: 30%;
+	right: 30%;
 	border-radius: 50%;
 	border: 1px solid black;
 	width: 50px;

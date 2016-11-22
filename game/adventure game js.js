@@ -1,4 +1,5 @@
 var Location;
+var code = "";
 var items = {
 	huisKey: false,
 	kelderKey: false,
@@ -23,6 +24,14 @@ var actions = {
 	munsBedroom: false,
 	givePie: false,
 	waterFlowers: false
+}
+
+function safeCode() {
+	var i;
+	for (i = 0; i < 4; i++) {
+		code += Math.floor(Math.random() * 10);
+	}
+	console.log(code)
 }
 
 function clear() {
@@ -880,8 +889,10 @@ function enterCastle() {
 	document.getElementById('buttonEnterCastle').style.display = "none";
 	document.getElementById('buttonMountain').style.display = "none";
 	document.getElementById('buttonWaterFlowers').style.display = "none";
+	document.getElementById('buttonRepeatCode').style.display = "none";
 	document.getElementById('buttonCastle').style.display = "inline";
 	document.getElementById('buttonGoldenFlowerField').style.display = "inline";
+	document.getElementById('story1').innerHTML = "";
 	document.body.style.backgroundImage = "";
 	document.body.style.backgroundColor = "fuchsia";
 }
@@ -893,14 +904,20 @@ function toGoldenFlowerField() {
 	document.getElementById('buttonCastle').style.display = "none";
 	document.getElementById('buttonEnterCastle').style.display = "inline";
 	document.getElementById('buttonWaterFlowers').style.display = "inline";
+	if (actions.waterFlowers == true) {
+		document.getElementById('buttonRepeatCode').style.display = "inline";
+	} else {
+		document.getElementById('buttonRepeatCode').style.display = "none";
+	}
 }
 
 function waterFlowers() {
 	if (items.wateringCan == true && items.wateringCanFilled == true) {
 		console.log('you water the flowers');
 		document.getElementById('story1').innerHTML = "u WAtEr tha FloWers";
-		setTimeout(clear, 3000);
+		setTimeout(getCode, 3000);
 		items.wateringCanFilled = false;
+		actions.waterFlowers = true;
 	} else if (items.wateringCan == true) {
 		console.log('You need to fill the watering can with water');
 		document.getElementById('story1').innerHTML = "u NEEd To Fill it wIth WatER";
@@ -911,4 +928,10 @@ function waterFlowers() {
 		setTimeout(clear, 3000);
 		itemsInfo.wateringCanInfo = true;
 	}
+}
+
+function getCode() {
+	console.log("the code is " + code)
+	document.getElementById('story1').innerHTML = "ThA coDe iS: " + code;
+	document.getElementById('buttonRepeatCode').style.display = "inline";
 }
