@@ -184,6 +184,7 @@ function closeMenu() {
 			document.getElementById('buttonGang').style.display = "inline";
 	} else if (Location == "Bathroom") {
 		document.getElementById('buttonGang').style.display = "inline";
+		document.getElementById('buttonFillWateringCan').style.display = "inline";
 	} else if (Location == "Basement") {
 		document.getElementById('buttonGang').style.display = "inline";
 		document.getElementById('buttonSecretShop').style.display = "inline";
@@ -514,13 +515,19 @@ function toBadkamer() {
 }
 
 function fillWateringCan() {
-	if (items.wateringCanFilled == false) {
+	if (items.wateringCanFilled == false && items.wateringCan == true) {
 		console.log('you fill the watering can');
 		document.getElementById('story1').innerHTML = "u FILL tha WateRinG CaN";
 		items.wateringCanFilled = true;
-	} else {
+		setTimeout(clear, 3000);
+	} else if (items.wateringCanFilled == true) {
 		console.log('the watering can is already filled');
 		document.getElementById('story1').innerHTML = "iT's AlrEADy fIllEd";
+		setTimeout(clear, 3000);
+	} else {
+		document.getElementById('story1').innerHTML = "U NeEd A WateRinG CaN";
+		itemsInfo.wateringCanInfo = true;
+		setTimeout(clear, 3000);
 	}
 }
 
@@ -892,13 +899,16 @@ function waterFlowers() {
 	if (items.wateringCan == true && items.wateringCanFilled == true) {
 		console.log('you water the flowers');
 		document.getElementById('story1').innerHTML = "u WAtEr tha FloWers";
+		setTimeout(clear, 3000);
 		items.wateringCanFilled = false;
 	} else if (items.wateringCan == true) {
 		console.log('You need to fill the watering can with water');
 		document.getElementById('story1').innerHTML = "u NEEd To Fill it wIth WatER";
+		setTimeout(clear, 3000);
 	} else {
 		console.log('You need a watering can')
 		document.getElementById('story1').innerHTML = "U NeeD A wAteRiNg CAN";
+		setTimeout(clear, 3000);
 		itemsInfo.wateringCanInfo = true;
 	}
 }
