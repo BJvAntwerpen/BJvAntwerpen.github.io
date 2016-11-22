@@ -5,6 +5,8 @@ var items = {
 	dogSalad: false,
 	pie: false,
 	boat: false,
+	wateringCan: false,
+	wateringCanFilled: false,
 	Muns: 0
 }
 var itemsInfo = {
@@ -12,13 +14,15 @@ var itemsInfo = {
 	kelderKeyInfo: false,
 	dogSaladInfo: false,
 	pieInfo: false,
-	boatInfo: false
+	boatInfo: false,
+	wateringCanInfo: false
 }
 var actions = {
 	dogSaladCollect: false,
 	pieCollect: false,
 	munsBedroom: false,
-	givePie: false
+	givePie: false,
+	waterFlowers: false
 }
 
 function clear() {
@@ -74,48 +78,61 @@ function openMenu() {
 	if (items.huisKey == true) {
 		document.getElementById('item1').innerHTML = "Da fRONtdOOR KeY";
 		document.getElementById('item1').style.backgroundColor = "green";
-	} else if (itemsInfo.huisKeyInfo) {
+	} else if (itemsInfo.huisKeyInfo == true) {
 			document.getElementById('item1').innerHTML = "Da fRONtdOOR KeY";
 	} else {
 		document.getElementById('item1').innerHTML = "??????????";
 	}
 
-	if (items.kelderKey) {
+	if (items.kelderKey == true) {
 		document.getElementById('item2').innerHTML = "Da BASeMeNt KEy";
 		document.getElementById('item2').style.backgroundColor = "green";
-	} else if (itemsInfo.kelderKeyInfo) {
+	} else if (itemsInfo.kelderKeyInfo == true) {
 		document.getElementById('item2').innerHTML = "Da BASeMeNt KEy";
 	} else {
 		document.getElementById('item2').innerHTML = "??????????";
 	}
 
-	if (items.dogSalad) {
+	if (items.dogSalad == true) {
 		document.getElementById('item3').innerHTML = "dOg SaLad";
 		document.getElementById('item3').style.backgroundColor = "green";
-	} else if (itemsInfo.dogSaladInfo) {
+	} else if (itemsInfo.dogSaladInfo == true) {
 		document.getElementById('item3').innerHTML = "dOg SaLad";
 		document.getElementById('item3').style.backgroundColor = "red";
 	} else {
 		document.getElementById('item3').innerHTML = "??????????";
 	}
 
-	if (items.pie) {
+	if (items.pie == true) {
 		document.getElementById('item4').innerHTML = "BUttErsCoTcH-ciNnAMoN PiE";
 		document.getElementById('item4').style.backgroundColor = "green";
-	} else if (itemsInfo.pieInfo) {
+	} else if (itemsInfo.pieInfo == true) {
 		document.getElementById('item4').innerHTML = "BUttErsCoTcH-ciNnAMoN PiE";
 		document.getElementById('item4').style.backgroundColor = "red";
 	} else {
 		document.getElementById('item4').innerHTML = "??????????";
 	}
 
-	if (items.boat) {
+	if (items.boat == true) {
 		document.getElementById('item5').innerHTML = "BoaT";
 		document.getElementById('item5').style.backgroundColor = "green";
-	} else if (itemsInfo.boatInfo) {
+	} else if (itemsInfo.boatInfo == true) {
 		document.getElementById('item5').innerHTML = "BoaT";
 	} else {
 		document.getElementById('item5').innerHTML = "??????????";
+	}
+
+	if (items.wateringCan == true && items.wateringCanFilled == true) {
+		document.getElementById('item6').innerHTML = "wAtEring caN (Filled)";
+		document.getElementById('item6').style.backgroundColor = "green";
+	} else if (items.wateringCan == true) {
+		document.getElementById('item6').innerHTML = "wAtEring caN (Empty)";
+		document.getElementById('item6').style.backgroundColor = "green";
+	} else if (itemsInfo.wateringCanInfo == true) {
+		document.getElementById('item6').innerHTML = "wAtEring caN (Empty)";
+		document.getElementById('item6').style.backgroundColor = "red";
+	} else {
+		document.getElementById('item6').innerHTML = "??????????";
 	}
 	document.getElementById('itemMuns').innerHTML = items.Muns + "G";
 }
@@ -173,6 +190,11 @@ function closeMenu() {
 	} else if (Location == "Beach") {
 		document.getElementById('buttonWoud').style.display = "inline";
 		document.getElementById('buttonZee').style.display = "inline";
+		if (items.boat == true) {
+			document.getElementById('buttonSeaBoat').style,display = "inline";
+		} else {
+			document.getElementById('buttonSeaBoat').style.display = "none";
+		}
 	} else if (Location == "TemShop") {
 		document.getElementById('buttonBackTemVillage').style.display = "inline";
 		document.getElementById('buttonNormalBuy').style.display = "inline";
@@ -359,6 +381,7 @@ function toGang() {
 	document.getElementById('actionFrontdoorKey').style.display = "none";
 	document.getElementById('Muns').style.display = "none";
 	document.getElementById('buttonSecretShop').style.display = "none";
+	document.getElementById('buttonFillWateringCan').style.display = "none";
 	document.getElementById('storyLine').style.background = "";
 	if (items.kelderKey == true) {
 		document.getElementById('buttonKelder').style.cursor = "pointer";
@@ -485,8 +508,20 @@ function toBadkamer() {
 	document.getElementById('buttonKelder').style.display = "none";
 	document.getElementById('buttonSlaapkamer').style.display = "none";
 	document.getElementById('buttonGang').style.display = "inline";
+	document.getElementById('buttonFillWateringCan').style.display = "inline";
 	document.getElementById('locatie').innerHTML = "Location: Bathroom";
 	document.getElementById('story1').innerHTML = "";
+}
+
+function fillWateringCan() {
+	if (items.wateringCanFilled == false) {
+		console.log('you fill the watering can');
+		document.getElementById('story1').innerHTML = "u FILL tha WateRinG CaN";
+		items.wateringCanFilled = true;
+	} else {
+		console.log('the watering can is already filled');
+		document.getElementById('story1').innerHTML = "iT's AlrEADy fIllEd";
+	}
 }
 
 function toStrand() {
@@ -813,6 +848,7 @@ function enterCastle() {
 	document.getElementById('locatie').style.color = "black";
 	document.getElementById('buttonEnterCastle').style.display = "none";
 	document.getElementById('buttonMountain').style.display = "none";
+	document.getElementById('buttonWaterFlowers').style.display = "none";
 	document.getElementById('buttonCastle').style.display = "inline";
 	document.getElementById('buttonGoldenFlowerField').style.display = "inline";
 	document.body.style.backgroundImage = "";
@@ -825,4 +861,20 @@ function toGoldenFlowerField() {
 	document.getElementById('buttonGoldenFlowerField').style.display = "none";
 	document.getElementById('buttonCastle').style.display = "none";
 	document.getElementById('buttonEnterCastle').style.display = "inline";
+	document.getElementById('buttonWaterFlowers').style.display = "inline";
+}
+
+function waterFlowers() {
+	if (items.wateringCan == true && items.wateringCanFilled == true) {
+		console.log('you water the flowers');
+		document.getElementById('story1').innerHTML = "u WAtEr tha FloWers";
+		items.wateringCanFilled = false;
+	} else if (items.wateringCan == true) {
+		console.log('You need to fill the watering can with water');
+		document.getElementById('story1').innerHTML = "u NEEd To Fill it wIth WatER";
+	} else {
+		console.log('You need a watering can')
+		document.getElementById('story1').innerHTML = "U NeeD A wAteRiNg CAN";
+		itemsInfo.wateringCanInfo = true;
+	}
 }
