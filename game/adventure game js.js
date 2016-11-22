@@ -34,6 +34,12 @@ function safeCode() {
 	console.log(code)
 }
 
+function play_Again() {
+	document.getElementById('story1').innerHTML = "Tem: teM KNEw HooMan wouLD lIke tO Play aGAIN!";
+	document.getElementById('buttonPlayAgain').style.display = "inline";
+	setTimeout(reset, 5000);
+}
+
 function clear() {
 	document.getElementById('shopInfo').innerHTML = "";
 	document.getElementById('story1').innerHTML = "";
@@ -154,16 +160,16 @@ function closeMenu() {
 	document.getElementById('itemList').style.display = "none";
 	console.log('MENU gesloten');
 	if (Location == "House") {
-		document.getElementById('buttonWoud').style.display = "inline";
 		document.getElementById('buttonGang').style.display = "inline";
 		document.getElementById('buttonKeuken').style.display = "inline";
 	} else if (Location == "Forest") {
-		document.getElementById('buttonHuis').style.display = "inline";
+		document.getElementById('buttonGang').style.display = "inline";
 		document.getElementById('buttonStrand').style.display = "inline";
 		document.getElementById('buttonTemVillage').style.display = "inline";
 		document.getElementById('buttonMountain').style.display = "inline";
 	} else if (Location == "Kitchen") {
 		document.getElementById('buttonHuis').style.display = "inline";
+		document.getElementById('buttonFillWateringCan').style.display = "inline";
 		if (actions.pieCollect == true) {
 			document.getElementById('Pie').style.display = "none";
 		} else {
@@ -178,7 +184,7 @@ function closeMenu() {
 		document.getElementById('buttonHuis').style.display = "inline";
 		document.getElementById('buttonKelder').style.display = "inline";
 		document.getElementById('buttonSlaapkamer').style.display = "inline";
-		document.getElementById('buttonBadkamer').style.display = "inline";
+		document.getElementById('buttonWoud').style.display = "inline";
 	} else if (Location == "Bedroom") {
 		if (items.huisKey == true) {
 			document.getElementById('actionFrontdoorKey').style.display = "none";
@@ -191,9 +197,6 @@ function closeMenu() {
 			document.getElementById('Muns').style.display = "inline";
 		}
 			document.getElementById('buttonGang').style.display = "inline";
-	} else if (Location == "Bathroom") {
-		document.getElementById('buttonGang').style.display = "inline";
-		document.getElementById('buttonFillWateringCan').style.display = "inline";
 	} else if (Location == "Basement") {
 		document.getElementById('buttonGang').style.display = "inline";
 		document.getElementById('buttonSecretShop').style.display = "inline";
@@ -235,6 +238,7 @@ function closeMenu() {
 		document.getElementById('buttonTemVillage').style.display = "inline";
 	} else if (Location == "Volcano") {
 		document.getElementById('buttonMountain').style.display = "inline";
+		document.getElementById('buttonJumpVolcano').style.display = "inline";
 	} else if (Location == "secret Temshop") {
 		document.getElementById('buttonBackBasement').style.display = "inline";
 		document.getElementById('buttonSecretBuy').style.display = "inline";
@@ -276,7 +280,7 @@ function actionBasementKey() {
 	setTimeout(clear, 3000);
 }
 
-function Start() {
+function Story() {
 	document.getElementById('music1').play();
 	document.getElementById('musicStart').pause();
 	document.getElementById('story1').innerHTML = "hOI!!";
@@ -291,13 +295,12 @@ function Start() {
 	console.log('hOI!!');
 }
 
-function Story() {
+function Start() {
 	Location = "House";
 	document.body.style.backgroundImage = "url('img/House.png')";
 	document.body.style.backgroundColor = "white";
 	document.body.style.backgroundRepeat = "no-repeat";
 	document.body.style.backgroundSize = "100% 100%";
-	document.getElementById('buttonWoud').style.display = "inline";
 	document.getElementById('buttonGang').style.display = "inline";
 	document.getElementById('buttonKeuken').style.display = "inline";
 	document.getElementById('buttonMenuOpen').style.display = "inline";
@@ -306,11 +309,6 @@ function Story() {
 	document.getElementById('story1').innerHTML = "";
 	document.getElementById('story2').innerHTML = "";
 	document.getElementById('storyLine').style.backgroundImage = "";
-	if (items.huisKey) {
-		document.getElementById('buttonWoud').style.cursor = "pointer";
-	} else {
-		document.getElementById('buttonWoud').style.cursor = "not-allowed";
-	}
 }
 
 function toDeurWoud() {
@@ -330,13 +328,14 @@ function toWoud() {
 	document.getElementById('locatie').innerHTML = "Location: Forest";
 	console.log('Player goes to "Forest"');
 	document.getElementById('buttonWoud').style.display = "none";
-	document.getElementById('buttonGang').style.display = "none";
-	document.getElementById('buttonKeuken').style.display = "none";
+	document.getElementById('buttonHuis').style.display = "none";
+	document.getElementById('buttonKelder').style.display = "none";
+	document.getElementById('buttonSlaapkamer').style.display = "none";
 	document.getElementById('buttonVolcano').style.display = "none";
 	document.getElementById('buttonCastle').style.display = "none";
 	document.getElementById('buttonCave').style.display = "none";
 	document.getElementById('buttonHut1Pie').style.display = "none";
-	document.getElementById('buttonHuis').style.display = "inline";
+	document.getElementById('buttonGang').style.display = "inline";
 	document.getElementById('buttonStrand').style.display = "inline";
 	document.getElementById('buttonTemVillage').style.display = "inline";
 	document.getElementById('buttonHut1').style.display = "none";
@@ -359,10 +358,11 @@ function toKeuken() {
 	document.getElementById('buttonKeuken').style.display = "none";
 	document.getElementById('buttonGang').style.display = "none";
 	document.getElementById('buttonHuis').style.display = "inline";
+	document.getElementById('buttonFillWateringCan').style.display = "inline";
 	document.body.style.backgroundImage = "url('img/Keuken.png')";
 	document.body.style.backgroundRepeat = "no-repeat";
 	document.body.style.backgroundSize = "100% 100%";
-	if (actions.pieCollect) {
+	if (actions.pieCollect == true) {
 		document.getElementById('Pie').style.display = "none";
 	} else {
 		document.getElementById('Pie').style.display = "inline";
@@ -379,24 +379,26 @@ function toGang() {
 	console.log('Player goes to "Hallway"');
 	document.getElementById('locatie').innerHTML = "Location: Hallway";
 	document.body.style.backgroundColor = "blue";
-	document.body.style.backgroundImage = "";
-	document.getElementById('buttonWoud').style.display = "none";
+	document.body.style.backgroundImage = "url('img/Hallway.png')";
+	document.getElementById('buttonWoud').style.display = "inline";
 	document.getElementById('buttonKeuken').style.display = "none";
 	document.getElementById('buttonGang').style.display = "none";
 	document.getElementById('buttonHuis').style.display = "inline";
 	document.getElementById('buttonKelder').style.display = "inline";
-	document.getElementById('buttonBadkamer').style.fontSize = "18px";
 	document.getElementById('buttonSlaapkamer').style.display = "inline";
-	document.getElementById('buttonBadkamer').style.display = "inline";
 	document.getElementById('actionFrontdoorKey').style.display = "none";
 	document.getElementById('Muns').style.display = "none";
 	document.getElementById('buttonSecretShop').style.display = "none";
-	document.getElementById('buttonFillWateringCan').style.display = "none";
-	document.getElementById('storyLine').style.background = "";
+
 	if (items.kelderKey == true) {
 		document.getElementById('buttonKelder').style.cursor = "pointer";
 	} else {
 		document.getElementById('buttonKelder').style.cursor = "not-allowed";
+	}
+	if (items.huisKey) {
+		document.getElementById('buttonWoud').style.cursor = "pointer";
+	} else {
+		document.getElementById('buttonWoud').style.cursor = "not-allowed";
 	}
 }
 
@@ -410,19 +412,14 @@ function toHuis() {
 	document.getElementById('dogSalad').style.display = "none";
 	document.getElementById('buttonMountain').style.display = "none";
 	document.getElementById('buttonSlaapkamer').style.display = "none";
-	document.getElementById('buttonBadkamer').style.display = "none";
 	document.getElementById('buttonStrand').style.display = "none";
 	document.getElementById('buttonTemVillage').style.display = "none";
-	document.getElementById('buttonWoud').style.display = "inline";
+	document.getElementById('buttonWoud').style.display = "none";
 	document.getElementById('buttonGang').style.display = "inline";
 	document.getElementById('buttonKeuken').style.display = "inline";
 	document.getElementById('buttonHuis').style.display = "none";
+	document.getElementById('buttonFillWateringCan').style.display = "none";
 	document.getElementById('locatie').innerHTML = "Location: House";
-	if (items.huisKey == true) {
-		document.getElementById('buttonWoud').style.cursor = "pointer";
-	} else {
-		document.getElementById('buttonWoud').style.cursor = "not-allowed";
-	}
 }
 
 function toDeurKelder() {
@@ -444,7 +441,7 @@ function toKelder() {
 	document.getElementById('locatie').innerHTML = "Location: Basement";
 	document.getElementById('buttonKelder').style.display = "none";
 	document.getElementById('buttonSlaapkamer').style.display = "none";
-	document.getElementById('buttonBadkamer').style.display = "none";
+	document.getElementById('buttonWoud').style.display = "none";
 	document.getElementById('buttonHuis').style.display = "none";
 	document.getElementById('buttonSecretBuy').style.display = "none";
 	document.getElementById('buttonSecretSell').style.display = "none";
@@ -455,16 +452,10 @@ function toKelder() {
 
 function backBasement() {
 	document.getElementById('buttonBackBasement').style.display = "none";
-	document.getElementById('buttonSecretSell').style.display = "none";
-	document.getElementById('buttonSecretBuy').style.display = "none";
-	document.body.style.backgroundImage = "";
-	document.body.style.backgroundColor = "blue";
-	document.getElementById('buttonSecretShop').style.display = "inline";
-	document.getElementById('buttonGang').style.display = "inline";
-	document.getElementById('locatie').innerHTML = "Location: Basement";
 	document.getElementById('music2').pause();
 	document.getElementById('music2').currentTime = 0;
 	document.getElementById('music1').play();
+	toKelder();
 }
 
 function secretShop() {
@@ -492,7 +483,7 @@ function toSlaapkamer() {
 	document.body.style.backgroundSize = "100% 100%"
 	document.getElementById('story1').innerHTML = "";
 	document.getElementById('buttonHuis').style.display = "none";
-	document.getElementById('buttonBadkamer').style.display = "none";
+	document.getElementById('buttonWoud').style.display = "none";
 	document.getElementById('buttonKelder').style.display = "none";
 	document.getElementById('buttonSlaapkamer').style.display = "none";
 	document.getElementById('buttonGang').style.display = "inline";
@@ -507,20 +498,6 @@ function toSlaapkamer() {
 	} else {
 		document.getElementById('Muns').style.display = "inline";
 	}
-}
-
-function toBadkamer() {
-	Location = "Bathroom";
-	console.log('Player goes to "Bathroom"');
-	document.body.style.backgroundColor = "orange";
-	document.getElementById('buttonHuis').style.display = "none";
-	document.getElementById('buttonBadkamer').style.display = "none";
-	document.getElementById('buttonKelder').style.display = "none";
-	document.getElementById('buttonSlaapkamer').style.display = "none";
-	document.getElementById('buttonGang').style.display = "inline";
-	document.getElementById('buttonFillWateringCan').style.display = "inline";
-	document.getElementById('locatie').innerHTML = "Location: Bathroom";
-	document.getElementById('story1').innerHTML = "";
 }
 
 function fillWateringCan() {
@@ -543,7 +520,7 @@ function fillWateringCan() {
 function toStrand() {
 	Location = "Beach";
 	console.log('Player goes to "Da beach"');
-	document.getElementById('buttonHuis').style.display = "none";
+	document.getElementById('buttonGang').style.display = "none";
 	document.getElementById('buttonMountain').style.display = "none";
 	document.getElementById('buttonStrand').style.display = "none";
 	document.getElementById('buttonTemVillage').style.display = "none";
@@ -590,12 +567,7 @@ function toTemVillage() {
 	document.getElementById('buttonWoud').style.display = "inline";
 	document.getElementById('buttonMountain').style.display = "none";
 	document.getElementById('buttonStrand').style.display = "none";
-	document.getElementById('buttonHuis').style.display = "none";
-	if (actions.givePie == true) {
-		document.getElementById('buttonHut1').style.display = "inline";
-	} else {
-		document.getElementById('buttonHut1Pie').style.display = "inline";
-	}
+	document.getElementById('buttonGang').style.display = "none";
 	document.getElementById('actionBasementKey').style.display = "none";
 	document.getElementById('buttonHut2').style.display = "inline";
 	document.getElementById('buttonTemShop').style.display = "inline";
@@ -603,6 +575,11 @@ function toTemVillage() {
 	document.getElementById('locatie').innerHTML = "Location: Tem village";
 	document.getElementById('storyLine').style.backgroundImage = "";
 	document.getElementById('story1').innerHTML = "";
+	if (actions.givePie == true) {
+		document.getElementById('buttonHut1').style.display = "inline";
+	} else {
+		document.getElementById('buttonHut1Pie').style.display = "inline";
+	}
 }
 
 function toHut1Pie() {
