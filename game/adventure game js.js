@@ -248,6 +248,8 @@ function closeMenu() {
 		document.getElementById('buttonGoldenFlowerField').style.display = "inline";
 	} else if (Location == "golden flower field") {
 		document.getElementById('buttonEnterCastle').style.display = "inline";
+		document.getElementById('buttonWaterFlowers').style.display = "inline";
+		document.getElementById('buttonRepeatCode').style.display = "inline";
 	}
 }
 
@@ -387,6 +389,9 @@ function toGang() {
 	document.getElementById('buttonKelder').style.display = "inline";
 	document.getElementById('buttonSlaapkamer').style.display = "inline";
 	document.getElementById('actionFrontdoorKey').style.display = "none";
+	document.getElementById('buttonMountain').style.display = "none";
+	document.getElementById('buttonTemVillage').style.display = "none";
+	document.getElementById('buttonStrand').style.display = "none";
 	document.getElementById('Muns').style.display = "none";
 	document.getElementById('buttonSecretShop').style.display = "none";
 
@@ -741,6 +746,7 @@ function sellDogSalad(money) {
 		document.getElementById('shopInfo').innerHTML = "Tem: hErE r ur MuNs ";
 		document.getElementById('sellItem1').style.backgroundColor = "red";
 		document.getElementById('sellCItem1').style.backgroundColor = "red";
+		setTimeout(clear, 3000);
 	} else {
 		document.getElementById('shopInfo').innerHTML = "Tem: u doNt hAVe THAd iTem";
 		setTimeout(clear, 3000);
@@ -788,7 +794,7 @@ function toMountain() {
 	document.getElementById('buttonMountain').style.display = "none";
 	document.getElementById('buttonStrand').style.display = "none";
 	document.getElementById('buttonTemVillage').style.display = "none";
-	document.getElementById('buttonHuis').style.display = "none";
+	document.getElementById('buttonGang').style.display = "none";
 	document.getElementById('buttonJumpVolcano').style.display = "none";
 	document.getElementById('buttonEnterCastle').style.display = "none";
 	document.getElementById('buttonWoud').style.display = "inline";
