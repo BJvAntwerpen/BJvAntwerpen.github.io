@@ -8,6 +8,7 @@ var items = {
 	boat: false,
 	wateringCan: false,
 	wateringCanFilled: false,
+	goldenCrown: false,
 	Muns: 0
 }
 var itemsInfo = {
@@ -16,14 +17,16 @@ var itemsInfo = {
 	dogSaladInfo: false,
 	pieInfo: false,
 	boatInfo: false,
-	wateringCanInfo: false
+	wateringCanInfo: false,
+	goldenCrownInfo: false
 }
 var actions = {
 	dogSaladCollect: false,
 	pieCollect: false,
 	munsBedroom: false,
 	givePie: false,
-	waterFlowers: false
+	waterFlowers: false,
+	safeOpened: false
 }
 
 function safeCode() {
@@ -149,6 +152,16 @@ function openMenu() {
 	} else {
 		document.getElementById('item6').innerHTML = "??????????";
 	}
+
+	if (items.goldenCrown == true) {
+		document.getElementById('item7').innerHTML = "gOLdEn croWn";
+		document.getElementById('item7').style.backgroundColor = "green";
+	} else if (itemsInfo.goldenCrownInfo == true) {
+		document.getElementById('item7').innerHTML = "gOLdEn croWn";
+		document.getElementById('item7').style.backgroundColor = "red";
+	} else {
+		document.getElementById('item7').innerHTML = "??????????";
+	}
 	document.getElementById('itemMuns').innerHTML = items.Muns + "G";
 }
 
@@ -197,6 +210,7 @@ function closeMenu() {
 			document.getElementById('Muns').style.display = "inline";
 		}
 			document.getElementById('buttonGang').style.display = "inline";
+			document.getElementById('buttonOpenSafe').style.display = "inline";
 	} else if (Location == "Basement") {
 		document.getElementById('buttonGang').style.display = "inline";
 		document.getElementById('buttonSecretShop').style.display = "inline";
@@ -246,10 +260,18 @@ function closeMenu() {
 	} else if (Location == "Castle") {
 		document.getElementById('buttonCastle').style.display = "inline";
 		document.getElementById('buttonGoldenFlowerField').style.display = "inline";
+		document.getElementById('buttonThroneRoom').style.display = "inline";
 	} else if (Location == "golden flower field") {
 		document.getElementById('buttonEnterCastle').style.display = "inline";
 		document.getElementById('buttonWaterFlowers').style.display = "inline";
-		document.getElementById('buttonRepeatCode').style.display = "inline";
+		if (actions.waterFlowers == true) {
+			document.getElementById('buttonRepeatCode').style.display = "inline";
+		} else {
+			document.getElementById('buttonRepeatCode').style.display = "none";
+		}
+	} else if (Location == "Throne room") {
+		document.getElementById('buttonEnterCastle').style.display = "inline";
+		document.getElementById('buttonKingQueen').style.display = "inline";
 	}
 }
 
@@ -393,8 +415,8 @@ function toGang() {
 	document.getElementById('buttonTemVillage').style.display = "none";
 	document.getElementById('buttonStrand').style.display = "none";
 	document.getElementById('Muns').style.display = "none";
+	document.getElementById('buttonOpenSafe').style.display = "none";
 	document.getElementById('buttonSecretShop').style.display = "none";
-
 	if (items.kelderKey == true) {
 		document.getElementById('buttonKelder').style.cursor = "pointer";
 	} else {
@@ -491,6 +513,7 @@ function toSlaapkamer() {
 	document.getElementById('buttonWoud').style.display = "none";
 	document.getElementById('buttonKelder').style.display = "none";
 	document.getElementById('buttonSlaapkamer').style.display = "none";
+	document.getElementById('buttonOpenSafe').style.display = "inline";
 	document.getElementById('buttonGang').style.display = "inline";
 	document.getElementById('locatie').innerHTML = "Location: Bedroom";
 	if (items.huisKey == true) {
@@ -827,6 +850,7 @@ function toCastle() {
 	document.getElementById('buttonCastle').style.display = "none";
 	document.getElementById('buttonWoud').style.display = "none";
 	document.getElementById('buttonGoldenFlowerField').style.display = "none";
+	document.getElementById('buttonThroneRoom').style.display = "none";
 	document.getElementById('buttonMountain').style.display = "inline";
 	document.getElementById('buttonEnterCastle').style.display = "inline";
 }
@@ -873,11 +897,23 @@ function enterCastle() {
 	document.getElementById('buttonMountain').style.display = "none";
 	document.getElementById('buttonWaterFlowers').style.display = "none";
 	document.getElementById('buttonRepeatCode').style.display = "none";
+	document.getElementById('buttonKingQueen').style.display = "none";
 	document.getElementById('buttonCastle').style.display = "inline";
 	document.getElementById('buttonGoldenFlowerField').style.display = "inline";
+	document.getElementById('buttonThroneRoom').style.display = "inline";
 	document.getElementById('story1').innerHTML = "";
 	document.body.style.backgroundImage = "";
 	document.body.style.backgroundColor = "fuchsia";
+}
+
+function toThroneRoom() {
+	Location = "Throne room";
+	document.getElementById('locatie').innerHTML = "Location: Throne room";
+	document.getElementById('buttonThroneRoom').style.display = "none";
+	document.getElementById('buttonGoldenFlowerField').style.display = "none";
+	document.getElementById('buttonCastle').style.display = "none";
+	document.getElementById('buttonEnterCastle').style.display = "inline";
+	document.getElementById('buttonKingQueen').style.display = "inline";
 }
 
 function toGoldenFlowerField() {
@@ -885,6 +921,7 @@ function toGoldenFlowerField() {
 	document.getElementById('locatie').innerHTML = "Location: Golden flower field";
 	document.getElementById('buttonGoldenFlowerField').style.display = "none";
 	document.getElementById('buttonCastle').style.display = "none";
+	document.getElementById('buttonThroneRoom').style.display = "none";
 	document.getElementById('buttonEnterCastle').style.display = "inline";
 	document.getElementById('buttonWaterFlowers').style.display = "inline";
 	if (actions.waterFlowers == true) {
@@ -901,6 +938,7 @@ function waterFlowers() {
 		setTimeout(getCode, 3000);
 		items.wateringCanFilled = false;
 		actions.waterFlowers = true;
+		document.getElementById('buttonOpenSafe').style.border = "2px solid #66ff66";
 	} else if (items.wateringCan == true) {
 		console.log('You need to fill the watering can with water');
 		document.getElementById('story1').innerHTML = "u NEEd To Fill it wIth WatER";
@@ -915,6 +953,53 @@ function waterFlowers() {
 
 function getCode() {
 	console.log("the code is " + code)
-	document.getElementById('story1').innerHTML = "ThA coDe iS: " + code;
+	document.getElementById('story1').innerHTML = "ThA coDe iS: " + code + "<br>(there's a safe in the bedroom)";
 	document.getElementById('buttonRepeatCode').style.display = "inline";
+}
+
+function openSafe() {
+	document.getElementById('buttonOpenSafe').innerHTML = "Safe";
+	if (actions.safeOpened == false) {
+		var enteredCode = prompt("P!!!!!! eNtER Tha coDe","####");
+		if (enteredCode == code) {
+			document.getElementById('story1').innerHTML = "tha Safe oPeND.<br>U foUnD a GolDEN cRown.";
+			console.log('you got a golden crown!');
+			actions.safeOpened = true;
+			items.goldenCrown = true;
+		} else {
+			alert("u EnTered tHA wrONg CODE");
+			console.log('you entered the wrong code');
+		}
+	} else {
+		document.getElementById('story1').innerHTML = "ThA sAfe iS ALrEady OpeN";
+		setTimeout(clear, 3000);
+	}
+}
+
+function becomeKingQueen() {
+	if (items.goldenCrown == true) {
+		console.log("you win");
+		document.getElementById('locatie').style.display = "none";
+		document.getElementById('buttonMenuOpen').style.display = "none";
+		document.getElementById('buttonKingQueen').style.display = "none";
+		document.getElementById('buttonEnterCastle').style.display = "none";
+		document.getElementById('story1').innerHTML = "u deCIdE to become thA KinG...Errr LeaDER Of tHa TEmmIes";
+		setTimeout(function() {
+			document.getElementById('story1').innerHTML = "BUt u STill DoN't Know uR name so u thiNk of One.";
+			setTimeout(function() {
+				var name = prompt("Please think of a name","Bob");
+				setTimeout(function() {
+					if (name != "Bob") {
+						document.getElementById('story1').innerHTML = "u ThoughT Of A horrIBlE name.<br>SO U kEeP Id At: Bob";
+					} else {
+						document.getElementById('story1').innerHTML = "U THouGht oF THa perfecT nAme: " + name;
+					}
+					document.getElementById('buttonPlayAgain').style.display = "inline";
+				} ,2000);
+			}, 5000);
+		}, 5000);
+	} else {
+		document.getElementById('story1').innerHTML = "U nEed sometHing Like A crOWN to BeCoME kIng/quEeN";
+		itemsInfo.goldenCrownInfo = true;
+	}
 }

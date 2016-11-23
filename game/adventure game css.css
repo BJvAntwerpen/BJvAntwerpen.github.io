@@ -143,6 +143,27 @@ h1 {
 	height: 50px;
 }
 
+#buttonKingQueen {
+	border: 1px solid black;
+	border-radius: 50%;
+	width: 100px;
+	height: 100px;
+	position: absolute;
+	top: 40%;
+	left: 40%;
+}
+
+#buttonOpenSafe {
+	border: none;
+	background-color: rgba(0,0,0,0);
+	position: absolute;
+	top: 56px;
+	left: 348px;
+	width: 100px;
+	height: 60px;
+	border-radius: 10px;
+}
+
 #buttonFillWateringCan {
 	border-radius: 50%;
 	border: none;
