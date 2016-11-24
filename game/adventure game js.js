@@ -57,7 +57,7 @@ function checkCookie() {
     if (user != "") {
         alert("Welcome again " + user);
     } else {
-       user = prompt("Please enter your name:","");
+       user = prompt("Please enter your name:","This is just a test");
        if (user != "" && user != null) {
            setCookie("username", user, 1.05);
        }
