@@ -908,6 +908,7 @@ function enterCastle() {
 
 function toThroneRoom() {
 	Location = "Throne room";
+	/*document.body.style.backgroundImage = "url('img/ThroneRoom.png')";*/
 	document.getElementById('locatie').innerHTML = "Location: Throne room";
 	document.getElementById('buttonThroneRoom').style.display = "none";
 	document.getElementById('buttonGoldenFlowerField').style.display = "none";

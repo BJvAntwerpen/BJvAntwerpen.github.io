@@ -191,7 +191,7 @@ p {
 	margin: 5px 0 0 5px;
 	font-size: 20px;
 	font-family: sans-serif;
-	color: white;
+	color: black;
 }
 
 .buttonTopRight {
@@ -208,10 +208,9 @@ p {
 
 .buttonLeft {
 	border: 1px solid white;
-	display: none;
 	background-color: rgba(255,255,255,0);
 	font-size: 20px;
-	color: white;
+	color: lime;
 	width: 100px;
 	height: 250px;
 	border-radius: 50%;
@@ -230,8 +229,7 @@ p {
 	border: 1px solid white;
 	background-color: rgba(255,255,255,0);
 	font-size: 20px;
-	color: white;
-	display: none;
+	color: lime;
 	width: 100px;
 	height: 250px;
 	border-radius: 50%;
@@ -250,8 +248,7 @@ p {
 	border: 1px solid white;
 	background-color: rgba(255,255,255,0);
 	font-size: 20px;
-	color: white;
-	display: none;
+	color: lime;
 	width: 250px;
 	height: 100px;
 	border-radius: 50%;
@@ -270,7 +267,7 @@ p {
 	border: 1px solid white;
 	background-color: rgba(255,255,255,0);
 	font-size: 20px;
-	color: white;
+	color: lime;
 	width: 250px;
 	height: 100px;
 	border-radius: 50%;
