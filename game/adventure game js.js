@@ -28,7 +28,7 @@ var actions = {
 	waterFlowers: false,
 	safeOpened: false
 }
-
+/*
 function setCookie(cname,cvalue,exdays) {
     var d = new Date();
     d.setTime(d.getTime() + (exdays*60*1000));
@@ -63,7 +63,7 @@ function checkCookie() {
        }
     }
 }
-
+*/
 function safeCode() {
 	var i;
 	for (i = 0; i < 4; i++) {
@@ -943,7 +943,7 @@ function enterCastle() {
 
 function toThroneRoom() {
 	Location = "Throne room";
-	/*document.body.style.backgroundImage = "url('img/ThroneRoom.png')";*/
+	document.body.style.backgroundImage = "url('img/ThroneRoom.png')";
 	document.getElementById('locatie').innerHTML = "Location: Throne room";
 	document.getElementById('buttonThroneRoom').style.display = "none";
 	document.getElementById('buttonGoldenFlowerField').style.display = "none";
