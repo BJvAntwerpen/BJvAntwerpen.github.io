@@ -216,7 +216,7 @@ p {
 	border-radius: 50%;
 	position: absolute;
 	left: 10px;
-	top: 238px;
+	top: 33.5%;
 }
 
 .buttonLeft:hover {
@@ -235,7 +235,7 @@ p {
 	border-radius: 50%;
 	position: absolute;
 	right: 10px;
-	top: 238px;
+	top: 33.5%;
 }
 
 .buttonRight:hover {
