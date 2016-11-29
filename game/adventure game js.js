@@ -28,6 +28,14 @@ var actions = {
 	waterFlowers: false,
 	safeOpened: false
 }
+var Storyline = {
+	Kitchen: false,
+	Bedroom: false,
+	Temvillage: false,
+	Hut2: false,
+	Beach: false,
+	Volcano: false
+}
 /*
 function setCookie(cname,cvalue,exdays) {
     var d = new Date();
