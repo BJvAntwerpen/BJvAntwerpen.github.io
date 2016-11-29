@@ -713,17 +713,19 @@ function toTemShop() {
 }
 
 function Buy(plek) {
+	document.getElementById('Menu').style.backgroundColor = "rgba(75, 75, 75, 0.7)";
 	if (plek == 'normal') {
 		document.getElementById('buttonNormalBuy').style.display = "none";
-		document.getElementById('Menu').style.backgroundColor = "rgba(75, 75, 75, 0.7)";
 		document.getElementById('buttonNormalSell').style.display = "none";
 		document.getElementById('buttonBackTemVillage').style.display = "none";
 		document.getElementById('buttonBackNormal').style.display = "inline";
 		document.getElementById('buyItem1').style.display = "inline";
-		document.getElementById('buyItem2').style.display = "inline";
 	} else if (plek == 'secret') {
-		document.getElementById('story1').innerHTML = "Tem: Tem hAVe no ItemS tO SeLl";
-		setTimeout(clear, 3000);
+		document.getElementById('buyItem2').style.display = "inline";
+		document.getElementById('buttonSecretBuy').style.display = "none";
+		document.getElementById('buttonSecretSell').style.display = "none";
+		document.getElementById('buttonBackBasement').style.display = "none";
+		document.getElementById('buttonBackSecret').style.display = "inline";
 	}
 	if (items.Muns >= 400 && items.boat == false) {
 		document.getElementById('buyItem1').style.backgroundColor = "green";
@@ -827,6 +829,7 @@ function backTemShop(plek) {
 		document.getElementById('buttonSecretBuy').style.display = "inline";
 		document.getElementById('buttonBackBasement').style.display = "inline";
 		document.getElementById('buyItem1').style.display = "none";
+		document.getElementById('buyItem2').style.display = "none";
 		document.getElementById('sellCItem1').style.display = "none";
 		document.getElementById('buttonBackSecret').style.display = "none";
 	}
