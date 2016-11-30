@@ -5,15 +5,10 @@ body {
 	height: 739px;
 }
 
-@media screen and (min-width: 1300px) and (max-width: 1525px) {
-	body {
-		width: 100%;
-	}
-}
-
 h1 {
 	margin: auto;
 	display: none;
+	text-shadow: 1px 0 0 #FFF, -1px 0 0 #FFF, 0 1px 0 #FFF, 0 -1px 0 #FFF, 1px 1px #FFF, -1px -1px 0 #FFF, 1px -1px 0 #FFF, -1px 1px 0 #FFF;
 }
 
 .textConfirmReset {

@@ -1,4 +1,5 @@
 var Location;
+var Clear;
 var code = "";
 var items = {
 	huisKey: false,
@@ -92,32 +93,35 @@ function clear() {
 }
 
 function getMuns() {
+	clearTimeout(Clear);
 	items.Muns += 50;
 	actions.munsBedroom = true;
 	console.log('You found 50G')
 	document.getElementById('story1').innerHTML = "U found 50G!"
 	document.getElementById('Muns').style.display = "none";
-	setTimeout(clear, 3000);
+	Clear = setTimeout(clear, 3000);
 }
 
 function getPie() {
+	clearTimeout(Clear);
 	items.pie = true;
 	itemsInfo.pieInfo = true;
 	actions.pieCollect = true;
 	console.log('collected a butterscotch-cinnamon pie')
 	document.getElementById('Pie').style.display = "none";
 	document.getElementById('story1').innerHTML = "U got a ButtErSCOtCH-ciNnamOn PiE!";
-	setTimeout(clear, 3000);
+	Clear = setTimeout(clear, 3000);
 }
 
 function dog_Salad() {
+	clearTimeout(Clear);
 	items.dogSalad = true;
 	itemsInfo.dogSaladInfo = true;
 	actions.dogSaladCollect = true;
 	console.log('collected a dog salad')
 	document.getElementById('story1').innerHTML = "U found dog salad";
 	document.getElementById('dogSalad').style.display = "none";
-	setTimeout(clear, 3000);
+	Clear = setTimeout(clear, 3000);
 }
 
 function openMenu() {
@@ -319,7 +323,13 @@ function closeMenu() {
 }
 
 function reset() {
-	location.reload(true)
+	document.getElementById('story1').innerHTML = "";
+	document.getElementById('story2').innerHTML = "";
+	document.getElementById('locatie').innerHTML = "";
+	document.getElementById('storyLine').style.backgroundImage = "";
+	document.getElementById('buttonGameOver').style.display = "none";
+	document.body.style.backgroundImage = "url(img/Determination.png)";
+	setTimeout(function(){location.reload(true)}, 5000);
 }
 
 function confirmReset() {
@@ -332,19 +342,21 @@ function confirmReset() {
 }
 
 function actionFrontdoorKey() {
+	clearTimeout(Clear);
 	items.huisKey = true;
 	itemsInfo.huisKeyInfo = true;
 	document.getElementById('story1').innerHTML = "U founb da frontdoor key!";
 	document.getElementById('actionFrontdoorKey').style.display = "none";
-	setTimeout(clear, 3000);
+	Clear = setTimeout(clear, 3000);
 }
 
 function actionBasementKey() {
+	clearTimeout(Clear);
 	items.kelderKey = true;
 	itemsInfo.kelderKeyInfo = true;
 	document.getElementById('story1').innerHTML = "U founb da basement key";
 	document.getElementById('actionBasementKey').style.display = "none";
-	setTimeout(clear, 3000);
+	Clear = setTimeout(clear, 3000);
 }
 
 function Story() {
@@ -383,10 +395,11 @@ function toDeurWoud() {
 		toWoud();
 		document.getElementById('buttonWoud').style.cursor = "pointer";
 	} else {
+		clearTimeout(Clear);
 		document.getElementById('story1').innerHTML = "A key is needeb!";
 		console.log('A key is needeb!');
 		itemsInfo.huisKeyInfo = true;
-		setTimeout(clear, 3000);
+		Clear = setTimeout(clear, 3000);
 	}
 }
 
@@ -427,6 +440,7 @@ function toKeuken() {
 	document.body.style.backgroundRepeat = "no-repeat";
 	document.body.style.backgroundSize = "100% 100%";
 	if (Storyline.Kitchen == false) {
+		clearTimeout(Clear);
 		document.getElementById('story1').innerHTML = "u enTEr tHa KitChen.<br>iT smElLs LIkE ThA PiE hAS jUST bEen baKed.";
 		Storyline.Kitchen = true;
 		setTimeout(toKeuken, 4000);
@@ -502,10 +516,11 @@ function toDeurKelder() {
 	if (items.kelderKey == true) {
 		toKelder();
 	} else {
+		clearTimeout(Clear);
 		document.getElementById('story1').innerHTML = "A key is needeb!";
 		console.log('A key is needeb!');
 		itemsInfo.kelderKeyInfo = true;
-		setTimeout(clear, 3000);
+		Clear = setTimeout(clear, 3000);
 	}
 }
 
@@ -538,7 +553,6 @@ function secretShop() {
 	Location = "secret Temshop";
 	document.body.style.backgroundImage = "url('img/TemmieInWall.png')";
 	document.getElementById('locatie').innerHTML = "Location: secret Temshop";
-	document.getElementById('locatie').style.color = "white";
 	document.body.style.backgroundColor = "gray";
 	document.getElementById('buttonBackBasement').style.display = "inline";
 	document.getElementById('buttonSecretShop').style.display = "none";
@@ -564,6 +578,7 @@ function toSlaapkamer() {
 	document.getElementById('buttonSlaapkamer').style.display = "none";
 	document.getElementById('story1').innerHTML = "";
 	if (Storyline.Bedroom == false) {
+		clearTimeout(Clear);
 		document.getElementById('story1').innerHTML = "u DoN't remEMBEr u hAVE a bEdrOoM tHIs siZe.";
 		Storyline.Bedroom = true;
 		setTimeout(toSlaapkamer, 4000);
@@ -588,15 +603,15 @@ function fillWateringCan() {
 		console.log('you fill the watering can');
 		document.getElementById('story1').innerHTML = "u FILL tha WateRinG CaN";
 		items.wateringCanFilled = true;
-		setTimeout(clear, 3000);
+		Clear = setTimeout(clear, 3000);
 	} else if (items.wateringCanFilled == true) {
 		console.log('the watering can is already filled');
 		document.getElementById('story1').innerHTML = "iT's AlrEADy fIllEd";
-		setTimeout(clear, 3000);
+		Clear = setTimeout(clear, 3000);
 	} else {
 		document.getElementById('story1').innerHTML = "U NeEd A WateRinG CaN";
 		itemsInfo.wateringCanInfo = true;
-		setTimeout(clear, 3000);
+		Clear = setTimeout(clear, 3000);
 	}
 }
 
@@ -647,35 +662,43 @@ function zeeGameOver() {
 function toTemVillage() {
 	Location = "TemVillage";
 	console.log('Player goes to "Tem village"')
-	document.getElementById('buttonWoud').style.display = "inline";
+	document.getElementById('locatie').innerHTML = "Location: Tem village";
 	document.getElementById('buttonMountain').style.display = "none";
 	document.getElementById('buttonStrand').style.display = "none";
 	document.getElementById('buttonGang').style.display = "none";
-	document.getElementById('actionBasementKey').style.display = "none";
-	document.getElementById('buttonHut2').style.display = "inline";
-	document.getElementById('buttonTemShop').style.display = "inline";
 	document.getElementById('buttonTemVillage').style.display = "none";
-	document.getElementById('locatie').innerHTML = "Location: Tem village";
-	document.getElementById('storyLine').style.backgroundImage = "";
-	document.getElementById('story1').innerHTML = "";
-	if (actions.givePie == true) {
-		document.getElementById('buttonHut1').style.display = "inline";
+	document.getElementById('actionBasementKey').style.display = "none";
+	if (Storyline.Temvillage == false) {
+		document.getElementById('story1').innerHTML = "U Kind Of ReMEmbEr this vILlagE.";
+		Storyline.Temvillage = true;
+		setTimeout(toTemVillage, 4000);
 	} else {
-		document.getElementById('buttonHut1Pie').style.display = "inline";
+		document.getElementById('buttonWoud').style.display = "inline";
+		document.getElementById('buttonHut2').style.display = "inline";
+		document.getElementById('buttonTemShop').style.display = "inline";
+		document.getElementById('storyLine').style.backgroundImage = "";
+		document.getElementById('story1').innerHTML = "";
+		if (actions.givePie == true) {
+			document.getElementById('buttonHut1').style.display = "inline";
+		} else {
+			document.getElementById('buttonHut1Pie').style.display = "inline";
+		}
 	}
 }
 
 function toHut1Pie() {
 	if (items.pie == true) {
+		clearTimeout(Clear);
 		items.pie = false;
 		actions.givePie = true;
 		document.getElementById('story1').innerHTML = "Tem: T!!!! FoR THa piE";
 		document.getElementById('buttonHut1Pie').style.display = "none";
 		document.getElementById('buttonHut1').style.display = "inline";
-		setTimeout(clear, 3000);
+		Clear = setTimeout(clear, 3000);
 	} else {
+		clearTimeout(Clear);
 		document.getElementById('story1').innerHTML = "Tem: bRiNG tEm a piE";
-		setTimeout(clear, 3000);
+		Clear = setTimeout(clear, 3000);
 	}
 }
 
@@ -767,13 +790,13 @@ function buyBoat() {
 		console.log('Player bought a "boat"');
 		document.getElementById('buyItem1').style.backgroundColor = "red";
 		document.getElementById('shopInfo').innerHTML = "Tem: t!!!! FoR buyn thA BoAt";
-		setTimeout(clear, 3000);
+		Clear = setTimeout(clear, 3000);
 	} else if (items.boat == true) {
 		document.getElementById('shopInfo').innerHTML = "Tem: mAkE sPace for ThAd iTeM";
-		setTimeout(clear, 3000);
+		Clear = setTimeout(clear, 3000);
 	} else {
 		document.getElementById('shopInfo').innerHTML = "Tem: bring more muns";
-		setTimeout(clear, 3000);
+		Clear = setTimeout(clear, 3000);
 	}
 }
 
@@ -784,13 +807,13 @@ function buyWateringCan() {
 		console.log('Player bought a "watering can"');
 		document.getElementById('buyItem2').style.backgroundColor = "red";
 		document.getElementById('shopInfo').innerHTML = "Tem: t!!!! For buyIng thA WateriNG Can";
-		setTimeout(clear, 3000);
+		Clear = setTimeout(clear, 3000);
 	} else if (items.wateringCan == true) {
 		document.getElementById('shopInfo').innerHTML = "Tem: mAkE sPace for ThAd iTeM";
-		setTimeout(clear, 3000);
+		Clear = setTimeout(clear, 3000);
 	} else {
 		document.getElementById('shopInfo').innerHTML = "Tem: bring more muns";
-		setTimeout(clear, 3000);
+		Clear = setTimeout(clear, 3000);
 	}
 }
 
@@ -826,10 +849,10 @@ function sellDogSalad(money) {
 		document.getElementById('shopInfo').innerHTML = "Tem: hErE r ur MuNs ";
 		document.getElementById('sellItem1').style.backgroundColor = "red";
 		document.getElementById('sellCItem1').style.backgroundColor = "red";
-		setTimeout(clear, 3000);
+		Clear = setTimeout(clear, 3000);
 	} else {
 		document.getElementById('shopInfo').innerHTML = "Tem: u doNt hAVe THAd iTem";
-		setTimeout(clear, 3000);
+		Clear = setTimeout(clear, 3000);
 	}
 }
 
@@ -870,7 +893,6 @@ function toMountain() {
 	Location = "Mountain";
 	console.log('Player goes to "Mountain"');
 	document.body.style.backgroundImage = "url('img/Mountain.png')";
-	document.getElementById('locatie').style.color = "black";
 	document.getElementById('locatie').innerHTML = "Location: Mountain";
 	document.getElementById('buttonMountain').style.display = "none";
 	document.getElementById('buttonStrand').style.display = "none";
@@ -888,7 +910,6 @@ function toCave() {
 	document.body.style.backgroundImage = "url('img/Cave.png')";
 	Location = "Cave";
 	console.log('Player goes to "Cave"');
-	document.getElementById('locatie').style.color = "white";
 	document.getElementById('locatie').innerHTML = "Location: Cave";
 	document.getElementById('buttonCave').style.display = "none";
 	document.getElementById('buttonVolcano').style.display = "none";
@@ -900,7 +921,6 @@ function toCave() {
 function toCastle() {
 	Location = "entranceCastle";
 	console.log('Player goes to "Entrance castle"');
-	document.getElementById('locatie').style.color = "white";
 	document.body.style.backgroundImage = "url('img/Castle.jpg')";
 	document.getElementById('locatie').innerHTML = "Location: Entrance castle";
 	document.getElementById('buttonCave').style.display = "none";
@@ -950,7 +970,6 @@ function jumpVolcano() {
 function enterCastle() {
 	Location = "Castle";
 	document.getElementById('locatie').innerHTML = "Location: Castle";
-	document.getElementById('locatie').style.color = "black";
 	document.getElementById('buttonEnterCastle').style.display = "none";
 	document.getElementById('buttonMountain').style.display = "none";
 	document.getElementById('buttonWaterFlowers').style.display = "none";
@@ -1001,11 +1020,11 @@ function waterFlowers() {
 	} else if (items.wateringCan == true) {
 		console.log('You need to fill the watering can with water');
 		document.getElementById('story1').innerHTML = "u NEEd To Fill it wIth WatER";
-		setTimeout(clear, 3000);
+		Clear = setTimeout(clear, 3000);
 	} else {
 		console.log('You need a watering can')
 		document.getElementById('story1').innerHTML = "U NeeD A wAteRiNg CAN";
-		setTimeout(clear, 3000);
+		Clear = setTimeout(clear, 3000);
 		itemsInfo.wateringCanInfo = true;
 	}
 }
@@ -1031,7 +1050,7 @@ function openSafe() {
 		}
 	} else {
 		document.getElementById('story1').innerHTML = "ThA sAfe iS ALrEady OpeN";
-		setTimeout(clear, 3000);
+		Clear = setTimeout(clear, 3000);
 	}
 }
 
