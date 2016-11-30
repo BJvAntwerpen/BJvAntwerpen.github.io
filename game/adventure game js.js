@@ -418,26 +418,32 @@ function toWoud() {
 
 function toKeuken() {
 	Location = "Kitchen";
-	console.log('Player goes to "Kitchen"');
-	document.getElementById('story1').innerHTML = "";
 	document.getElementById('locatie').innerHTML = "Location: Kitchen";
+	console.log('Player goes to "Kitchen"');
 	document.getElementById('buttonWoud').style.display = "none";
 	document.getElementById('buttonKeuken').style.display = "none";
 	document.getElementById('buttonGang').style.display = "none";
-	document.getElementById('buttonHuis').style.display = "inline";
-	document.getElementById('buttonFillWateringCan').style.display = "inline";
 	document.body.style.backgroundImage = "url('img/Keuken.png')";
 	document.body.style.backgroundRepeat = "no-repeat";
 	document.body.style.backgroundSize = "100% 100%";
-	if (actions.pieCollect == true) {
-		document.getElementById('Pie').style.display = "none";
+	if (Storyline.Kitchen == false) {
+		document.getElementById('story1').innerHTML = "u enTEr tHa KitChen.<br>iT smElLs LIkE ThA PiE hAS jUST bEen baKed.";
+		Storyline.Kitchen = true;
+		setTimeout(toKeuken, 4000);
 	} else {
-		document.getElementById('Pie').style.display = "inline";
-	}
-	if (actions.dogSaladCollect == true) {
-		document.getElementById('dogSalad').style.display = "none";
-	} else {
-		document.getElementById('dogSalad').style.display = "inline";
+		document.getElementById('story1').innerHTML = "";
+		document.getElementById('buttonHuis').style.display = "inline";
+		document.getElementById('buttonFillWateringCan').style.display = "inline";
+		if (actions.pieCollect == true) {
+			document.getElementById('Pie').style.display = "none";
+		} else {
+			document.getElementById('Pie').style.display = "inline";
+		}
+		if (actions.dogSaladCollect == true) {
+			document.getElementById('dogSalad').style.display = "none";
+		} else {
+			document.getElementById('dogSalad').style.display = "inline";
+		}
 	}
 }
 
@@ -547,27 +553,33 @@ function secretShop() {
 
 function toSlaapkamer() {
 	Location = "Bedroom";
+	document.getElementById('locatie').innerHTML = "Location: Bedroom";
 	console.log('Player goes to "Bedroom"');
 	document.body.style.backgroundImage = "url('img/bedroom.png')";
 	document.body.style.backgroundRepeat = "no-repeat";
 	document.body.style.backgroundSize = "100% 100%"
-	document.getElementById('story1').innerHTML = "";
 	document.getElementById('buttonHuis').style.display = "none";
 	document.getElementById('buttonWoud').style.display = "none";
 	document.getElementById('buttonKelder').style.display = "none";
 	document.getElementById('buttonSlaapkamer').style.display = "none";
-	document.getElementById('buttonOpenSafe').style.display = "inline";
-	document.getElementById('buttonGang').style.display = "inline";
-	document.getElementById('locatie').innerHTML = "Location: Bedroom";
-	if (items.huisKey == true) {
-		document.getElementById('actionFrontdoorKey').style.display = "none";
+	document.getElementById('story1').innerHTML = "";
+	if (Storyline.Bedroom == false) {
+		document.getElementById('story1').innerHTML = "u DoN't remEMBEr u hAVE a bEdrOoM tHIs siZe.";
+		Storyline.Bedroom = true;
+		setTimeout(toSlaapkamer, 4000);
 	} else {
-		document.getElementById('actionFrontdoorKey').style.display = "inline";
-	}
-	if (actions.munsBedroom == true) {
-		document.getElementById('Muns').style.display = "none";
-	} else {
-		document.getElementById('Muns').style.display = "inline";
+		document.getElementById('buttonOpenSafe').style.display = "inline";
+		document.getElementById('buttonGang').style.display = "inline";
+		if (items.huisKey == true) {
+			document.getElementById('actionFrontdoorKey').style.display = "none";
+		} else {
+			document.getElementById('actionFrontdoorKey').style.display = "inline";
+		}
+		if (actions.munsBedroom == true) {
+			document.getElementById('Muns').style.display = "none";
+		} else {
+			document.getElementById('Muns').style.display = "inline";
+		}
 	}
 }
 
