@@ -111,7 +111,7 @@ function readPuns() {
 	} else if (randomJoke == 9) {
 		document.getElementById('story1').innerHTML = "Why did the ghost took the elevator?<br>To lift his SPIRIT up.";
 	}
-	Clear = setTimeout(clear, 8000);
+	Clear = setTimeout(clear, 6000);
 }
 
 function clear() {
