@@ -359,7 +359,7 @@ function actionBasementKey() {
 	Clear = setTimeout(clear, 3000);
 }
 
-function Story() {
+function startStory() {
 	document.getElementById('music1').play();
 	document.getElementById('musicStart').pause();
 	document.getElementById('story1').innerHTML = "hOI!!";
@@ -934,26 +934,43 @@ function toCastle() {
 }
 
 function toVolcano() {
+	clearTimeout(Clear);
 	Location = "Volcano";
+	document.getElementById('locatie').innerHTML = "Location: Volcano";
 	console.log('Player goes to "Volcano"');
 	document.body.style.backgroundImage = "";
-	document.getElementById('locatie').innerHTML = "Location: Volcano";
+	document.getElementById('story1').innerHTML = "";
 	document.getElementById('buttonCave').style.display = "none";
 	document.getElementById('buttonVolcano').style.display = "none";
 	document.getElementById('buttonCastle').style.display = "none";
 	document.getElementById('buttonWoud').style.display = "none";
-	document.getElementById('buttonMountain').style.display = "inline";
-	document.getElementById('buttonJumpVolcano').style.display = "inline";
+	if (Storyline.Volcano == false) {
+		document.getElementById('story1').innerHTML = "Yes. ThIs Is a VeRY hot voLcAnO.<br>U SHOuldn't JUmp In If Tem Were u.";
+		Storyline.Volcano = true;
+		setTimeout(toVolcano, 4000);
+	} else {
+		document.getElementById('buttonMountain').style.display = "inline";
+		document.getElementById('buttonJumpVolcano').style.display = "inline";
+	}
 }
 
 function seaBoat() {
 	document.getElementById('buttonZee').style.display = "none";
 	document.getElementById('buttonSeaBoat').style.display = "none";
 	document.getElementById('buttonWoud').style.display = "none";
-	document.getElementById('story1').innerHTML = "Tem: TEm wOulD likE u to plAY wiTh Tem AGAin.<br>wOuld u Like To plAy agAin?";
-	document.getElementById('buttonPlayAgain').style.display = "inline";
+	/*document.getElementById('story1').innerHTML = "Tem: TEm wOulD likE u to plAY wiTh Tem AGAin.<br>wOuld u Like To plAy agAin?";*/
 	document.getElementById('locatie').style.display = "none";
 	document.getElementById('buttonMenuOpen').style.display = "none";
+	document.getElementById('buttonPlayAgain').style.display = "inline";
+	setTimeout(function(){
+		document.getElementById('story1').innerHTML = "U plAce DOwN thA bOat.";
+		setTimeout(function(){
+			document.getElementById('story1').innerHTML = "aS u RoW aWaY from THA SHOre, u REALIzE you'll bE missing TheM.";
+			setTimeout(function() {
+				document.getElementById('story1').innerHTML = "noW ThAD u R tOo fAr AwAY tO TurN back, u RegrET uR DECIsiOn .";
+			}, 10000);
+		}, 4000);
+	}, 2000);
 }
 
 function jumpVolcano() {
@@ -1040,15 +1057,18 @@ function openSafe() {
 	if (actions.safeOpened == false) {
 		var enteredCode = prompt("P!!!!!! eNtER Tha coDe","####");
 		if (enteredCode == code) {
+			clearTimeout(Clear);
 			document.getElementById('story1').innerHTML = "tha Safe oPeND.<br>U foUnD a GolDEN cRown.";
 			console.log('you got a golden crown!');
 			actions.safeOpened = true;
 			items.goldenCrown = true;
+			Clear = setTimeout(clear, 3000);
 		} else {
 			alert("u EnTered tHA wrONg CODE");
 			console.log('you entered the wrong code');
 		}
 	} else {
+		clearTimeout(Clear);
 		document.getElementById('story1').innerHTML = "ThA sAfe iS ALrEady OpeN";
 		Clear = setTimeout(clear, 3000);
 	}
