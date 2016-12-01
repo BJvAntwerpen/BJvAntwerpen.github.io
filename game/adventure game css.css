@@ -87,20 +87,26 @@ h1 {
 
 #dogSalad {
 	position: absolute;
-	top: 330px;
-	left: 325px;
+	top: 300px;
+	left: 280px;
 	border: none;
+	width: 50px;
+	height: 50px;
 	background-color: rgba(0,0,0,0);
-	color: rgb(161,111,60);
+	color: rgb(130,90,50);
 }
 
 #Pie {
 	position: absolute;
-	top: 240px;
-	right: 580px;
-	color: rgb(170,90,30);
+	top: 215px;
+	left: 950px;
+	color: rgb(89,5,0);
 	border: none;
+	border-radius: 50%;
+	width: 160px;
+	height: 60px;
 	background-color: rgba(0,0,0,0);
+	text-shadow: 1px 0 0 #FFF, -1px 0 0 #FFF, 0 1px 0 #FFF, 0 -1px 0 #FFF, 1px 1px #FFF, -1px -1px 0 #FFF, 1px -1px 0 #FFF, -1px 1px 0 #FFF;
 }
 
 #storyLine {
@@ -129,6 +135,16 @@ h1 {
 	border: 1px solid black;
 	width: 50px;
 	height: 50px;
+}
+
+#buttonPunbook {
+	border: none;
+	position: absolute;
+	left: 290px;
+	top: 522px;
+	width: 77px;
+	height: 62px;
+	background-color: rgba(0,0,0,0);
 }
 
 #buttonRepeatCode {
@@ -170,8 +186,9 @@ h1 {
 	position: absolute;
 	width: 70px;
 	height: 70px;
-	top: 32%;
+	top: 30%;
 	left: 35%;
+	text-shadow: 1px 0 0 #FFF, -1px 0 0 #FFF, 0 1px 0 #FFF, 0 -1px 0 #FFF, 1px 1px #FFF, -1px -1px 0 #FFF, 1px -1px 0 #FFF, -1px 1px 0 #FFF;
 }
 
 .buttonReset {

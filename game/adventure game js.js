@@ -110,6 +110,7 @@ function getPie() {
 	console.log('collected a butterscotch-cinnamon pie')
 	document.getElementById('Pie').style.display = "none";
 	document.getElementById('story1').innerHTML = "U got a ButtErSCOtCH-ciNnamOn PiE!";
+	document.body.style.backgroundImage = "url('img/Keuken2.png')";
 	Clear = setTimeout(clear, 3000);
 }
 
@@ -258,6 +259,7 @@ function closeMenu() {
 		}
 			document.getElementById('buttonGang').style.display = "inline";
 			document.getElementById('buttonOpenSafe').style.display = "inline";
+			document.getElementById('buttonPunbook').style.display = "inline";
 	} else if (Location == "Basement") {
 		document.getElementById('buttonGang').style.display = "inline";
 		document.getElementById('buttonSecretShop').style.display = "inline";
@@ -436,7 +438,11 @@ function toKeuken() {
 	document.getElementById('buttonWoud').style.display = "none";
 	document.getElementById('buttonKeuken').style.display = "none";
 	document.getElementById('buttonGang').style.display = "none";
-	document.body.style.backgroundImage = "url('img/Keuken.png')";
+	if (actions.pieCollect == false) {
+		document.body.style.backgroundImage = "url('img/Keuken.png')";
+	} else {
+		document.body.style.backgroundImage = "url('img/Keuken2.png')";
+	}
 	document.body.style.backgroundRepeat = "no-repeat";
 	document.body.style.backgroundSize = "100% 100%";
 	if (Storyline.Kitchen == false) {
@@ -478,6 +484,7 @@ function toGang() {
 	document.getElementById('buttonTemVillage').style.display = "none";
 	document.getElementById('buttonStrand').style.display = "none";
 	document.getElementById('Muns').style.display = "none";
+	document.getElementById('buttonPunbook').style.display = "none";
 	document.getElementById('buttonOpenSafe').style.display = "none";
 	document.getElementById('buttonSecretShop').style.display = "none";
 	if (items.kelderKey == true) {
@@ -585,6 +592,7 @@ function toSlaapkamer() {
 	} else {
 		document.getElementById('buttonOpenSafe').style.display = "inline";
 		document.getElementById('buttonGang').style.display = "inline";
+		document.getElementById('buttonPunbook').style.display = "inline";
 		if (items.huisKey == true) {
 			document.getElementById('actionFrontdoorKey').style.display = "none";
 		} else {
@@ -669,6 +677,7 @@ function toTemVillage() {
 	document.getElementById('buttonTemVillage').style.display = "none";
 	document.getElementById('actionBasementKey').style.display = "none";
 	if (Storyline.Temvillage == false) {
+		clearTimeout(Clear);
 		document.getElementById('story1').innerHTML = "U Kind Of ReMEmbEr this vILlagE.";
 		Storyline.Temvillage = true;
 		setTimeout(toTemVillage, 4000);
@@ -785,6 +794,7 @@ function Buy(plek) {
 
 function buyBoat() {
 	if (items.Muns >= 400 && items.boat == false) {
+		clearTimeout(Clear);
 		items.boat = true;
 		items.Muns -= 400;
 		console.log('Player bought a "boat"');
@@ -792,9 +802,11 @@ function buyBoat() {
 		document.getElementById('shopInfo').innerHTML = "Tem: t!!!! FoR buyn thA BoAt";
 		Clear = setTimeout(clear, 3000);
 	} else if (items.boat == true) {
+		clearTimeout(Clear);
 		document.getElementById('shopInfo').innerHTML = "Tem: mAkE sPace for ThAd iTeM";
 		Clear = setTimeout(clear, 3000);
 	} else {
+		clearTimeout(Clear);
 		document.getElementById('shopInfo').innerHTML = "Tem: bring more muns";
 		Clear = setTimeout(clear, 3000);
 	}
@@ -802,6 +814,7 @@ function buyBoat() {
 
 function buyWateringCan() {
 	if (items.Muns >= 200 && items.wateringCan == false) {
+		clearTimeout(Clear);
 		items.wateringCan = true;
 		items.Muns -= 200;
 		console.log('Player bought a "watering can"');
@@ -809,9 +822,11 @@ function buyWateringCan() {
 		document.getElementById('shopInfo').innerHTML = "Tem: t!!!! For buyIng thA WateriNG Can";
 		Clear = setTimeout(clear, 3000);
 	} else if (items.wateringCan == true) {
+		clearTimeout(Clear);
 		document.getElementById('shopInfo').innerHTML = "Tem: mAkE sPace for ThAd iTeM";
 		Clear = setTimeout(clear, 3000);
 	} else {
+		clearTimeout(Clear);
 		document.getElementById('shopInfo').innerHTML = "Tem: bring more muns";
 		Clear = setTimeout(clear, 3000);
 	}
@@ -843,6 +858,7 @@ function Sell(plek) {
 
 function sellDogSalad(money) {
 	if (items.dogSalad == true) {
+		clearTimeout(Clear);
 		items.dogSalad = false;
 		items.Muns += money;
 		console.log('Player sold a "Dog Salad"')
@@ -851,6 +867,7 @@ function sellDogSalad(money) {
 		document.getElementById('sellCItem1').style.backgroundColor = "red";
 		Clear = setTimeout(clear, 3000);
 	} else {
+		clearTimeout(Clear);
 		document.getElementById('shopInfo').innerHTML = "Tem: u doNt hAVe THAd iTem";
 		Clear = setTimeout(clear, 3000);
 	}
@@ -934,7 +951,6 @@ function toCastle() {
 }
 
 function toVolcano() {
-	clearTimeout(Clear);
 	Location = "Volcano";
 	document.getElementById('locatie').innerHTML = "Location: Volcano";
 	console.log('Player goes to "Volcano"');
@@ -945,6 +961,7 @@ function toVolcano() {
 	document.getElementById('buttonCastle').style.display = "none";
 	document.getElementById('buttonWoud').style.display = "none";
 	if (Storyline.Volcano == false) {
+		clearTimeout(Clear);
 		document.getElementById('story1').innerHTML = "Yes. ThIs Is a VeRY hot voLcAnO.<br>U SHOuldn't JUmp In If Tem Were u.";
 		Storyline.Volcano = true;
 		setTimeout(toVolcano, 4000);
