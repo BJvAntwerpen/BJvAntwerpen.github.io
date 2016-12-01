@@ -87,6 +87,33 @@ function play_Again() {
 	setTimeout(reset, 5000);
 }
 
+function readPuns() {
+	var randomJoke = Math.floor(Math.random() * 10);
+	clearTimeout(Clear);
+	if (randomJoke == 0) {
+		document.getElementById('story1').innerHTML = "Why did the skeleton want a friend?<br>Because she was feeling bonely.";
+	} else if (randomJoke == 1) {
+		document.getElementById('story1').innerHTML = "What does a skeleton tile his roof with?<br>Shin-gles!";
+	} else if (randomJoke == 2) {
+		document.getElementById('story1').innerHTML = "What do you do if you see a skeleton running across a road?<br>Jump out of your skin and join him!";
+	} else if (randomJoke == 3) {
+		document.getElementById('story1').innerHTML = "Everytime I hear a skeleton joke I feel it in my bones.";
+	} else if (randomJoke == 4) {
+		document.getElementById('story1').innerHTML = "These jokes are very bare bones.";
+	} else if (randomJoke == 5) {
+		document.getElementById('story1').innerHTML = "You wanna know why skeletons are terrible liars?<br>Everyone can see right through them!";
+	} else if (randomJoke == 6) {
+		document.getElementById('story1').innerHTML = "A dog stole a skeleton's left leg and left arm the other day.<br>But it's cool he's ALL RIGHT now!";
+	} else if (randomJoke == 7) {
+		document.getElementById('story1').innerHTML = "Whats a skeletons favorite weapon?<br>A bow and MARROW!";
+	} else if (randomJoke == 8) {
+		document.getElementById('story1').innerHTML = "What do skeletons put under their hotdogs?<br>A Skele-Bun.";
+	} else if (randomJoke == 9) {
+		document.getElementById('story1').innerHTML = "Why did the ghost took the elevator?<br>To lift his SPIRIT up.";
+	}
+	Clear = setTimeout(clear, 8000);
+}
+
 function clear() {
 	document.getElementById('shopInfo').innerHTML = "";
 	document.getElementById('story1').innerHTML = "";
