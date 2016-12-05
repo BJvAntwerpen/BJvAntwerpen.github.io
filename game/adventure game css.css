@@ -308,12 +308,34 @@ p {
 	background-color: rgba(0,0,0,0);
 }
 
-#actionBasementKey {
-	position: absolute;
-	right: 50%;
-	top: 50%;
+#Temmie1 {
 	border: none;
 	background-color: rgba(0,0,0,0);
+	position: absolute;
+	top: 448px;
+	left: 60px;
+	width: 150px;
+	height: 110px;
+}
+
+#Temmie2 {
+	border: none;
+	background-color: rgba(0,0,0,0);
+	position: absolute;
+	top: 476px;
+	left: 236px;
+	width: 150px;
+	height: 110px;
+}
+
+#TemmiePie {
+	border: none;
+	background-color: rgba(0,0,0,0);
+	position: absolute;
+	top: 427px;
+	left: 404px;
+	width: 150px;
+	height: 110px;
 }
 
 button {

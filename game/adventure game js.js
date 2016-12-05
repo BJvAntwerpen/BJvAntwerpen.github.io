@@ -81,7 +81,7 @@ function safeCode() {
 }
 
 function play_Again() {
-	document.getElementById('story1').innerHTML = "Tem: teM KNEw HooMan wouLD lIke tO Play aGAIN!";
+	document.getElementById('story1').innerHTML = "Tem: Tem knew hooman would like to play AGAIN!";
 	document.getElementById('buttonPlayAgain').style.display = "inline";
 	setTimeout(reset, 5000);
 }
@@ -135,7 +135,7 @@ function getPie() {
 	actions.pieCollect = true;
 	console.log('collected a butterscotch-cinnamon pie')
 	document.getElementById('Pie').style.display = "none";
-	document.getElementById('story1').innerHTML = "U got a ButtErSCOtCH-ciNnamOn PiE!";
+	document.getElementById('story1').innerHTML = "U got a Butterscotch-cinnamon pie!";
 	document.body.style.backgroundImage = "url('img/Keuken2.png')";
 	Clear = setTimeout(clear, 3000);
 }
@@ -168,70 +168,70 @@ function openMenu() {
 	console.log('MENU geopend');
 
 	if (items.huisKey == true) {
-		document.getElementById('item1').innerHTML = "Da fRONtdOOR KeY";
+		document.getElementById('item1').innerHTML = "Da frontdoor key";
 		document.getElementById('item1').style.backgroundColor = "green";
 	} else if (itemsInfo.huisKeyInfo == true) {
-			document.getElementById('item1').innerHTML = "Da fRONtdOOR KeY";
+			document.getElementById('item1').innerHTML = "Da frontdoor key";
 	} else {
 		document.getElementById('item1').innerHTML = "??????????";
 	}
 
 	if (items.kelderKey == true) {
-		document.getElementById('item2').innerHTML = "Da BASeMeNt KEy";
+		document.getElementById('item2').innerHTML = "Da basement key";
 		document.getElementById('item2').style.backgroundColor = "green";
 	} else if (itemsInfo.kelderKeyInfo == true) {
-		document.getElementById('item2').innerHTML = "Da BASeMeNt KEy";
+		document.getElementById('item2').innerHTML = "Da basement key";
 	} else {
 		document.getElementById('item2').innerHTML = "??????????";
 	}
 
 	if (items.dogSalad == true) {
-		document.getElementById('item3').innerHTML = "dOg SaLad";
+		document.getElementById('item3').innerHTML = "Dog salad";
 		document.getElementById('item3').style.backgroundColor = "green";
 	} else if (itemsInfo.dogSaladInfo == true) {
-		document.getElementById('item3').innerHTML = "dOg SaLad";
+		document.getElementById('item3').innerHTML = "Dog salad";
 		document.getElementById('item3').style.backgroundColor = "red";
 	} else {
 		document.getElementById('item3').innerHTML = "??????????";
 	}
 
 	if (items.pie == true) {
-		document.getElementById('item4').innerHTML = "BUttErsCoTcH-ciNnAMoN PiE";
+		document.getElementById('item4').innerHTML = "Butterscotch-cinnamon Pie";
 		document.getElementById('item4').style.backgroundColor = "green";
 	} else if (itemsInfo.pieInfo == true) {
-		document.getElementById('item4').innerHTML = "BUttErsCoTcH-ciNnAMoN PiE";
+		document.getElementById('item4').innerHTML = "Butterscotch-cinnamon Pie";
 		document.getElementById('item4').style.backgroundColor = "red";
 	} else {
 		document.getElementById('item4').innerHTML = "??????????";
 	}
 
 	if (items.boat == true) {
-		document.getElementById('item5').innerHTML = "BoaT";
+		document.getElementById('item5').innerHTML = "Boat";
 		document.getElementById('item5').style.backgroundColor = "green";
 	} else if (itemsInfo.boatInfo == true) {
-		document.getElementById('item5').innerHTML = "BoaT";
+		document.getElementById('item5').innerHTML = "Boat";
 	} else {
 		document.getElementById('item5').innerHTML = "??????????";
 	}
 
 	if (items.wateringCan == true && items.wateringCanFilled == true) {
-		document.getElementById('item6').innerHTML = "wAtEring caN (Filled)";
+		document.getElementById('item6').innerHTML = "Watering can (Filled)";
 		document.getElementById('item6').style.backgroundColor = "green";
 	} else if (items.wateringCan == true) {
-		document.getElementById('item6').innerHTML = "wAtEring caN (Empty)";
+		document.getElementById('item6').innerHTML = "Watering can (Empty)";
 		document.getElementById('item6').style.backgroundColor = "green";
 	} else if (itemsInfo.wateringCanInfo == true) {
-		document.getElementById('item6').innerHTML = "wAtEring caN (Empty)";
+		document.getElementById('item6').innerHTML = "Watering can (Empty)";
 		document.getElementById('item6').style.backgroundColor = "red";
 	} else {
 		document.getElementById('item6').innerHTML = "??????????";
 	}
 
 	if (items.goldenCrown == true) {
-		document.getElementById('item7').innerHTML = "gOLdEn croWn";
+		document.getElementById('item7').innerHTML = "Golden crown";
 		document.getElementById('item7').style.backgroundColor = "green";
 	} else if (itemsInfo.goldenCrownInfo == true) {
-		document.getElementById('item7').innerHTML = "gOLdEn croWn";
+		document.getElementById('item7').innerHTML = "Golden crown";
 		document.getElementById('item7').style.backgroundColor = "red";
 	} else {
 		document.getElementById('item7').innerHTML = "??????????";
@@ -302,8 +302,9 @@ function closeMenu() {
 		document.getElementById('buttonNormalBuy').style.display = "inline";
 		document.getElementById('buttonNormalSell').style.display = "inline";
 	} else if (Location == "TemVillage") {
-		document.getElementById('buttonHut1').style.display = "inline";
-		document.getElementById('buttonHut2').style.display = "inline";
+		document.getElementById('Temmie1').style.display = "inline";
+		document.getElementById('Temmie2').style.display = "inline";
+		document.getElementById('TemmiePie').style.display = "inline";
 		document.getElementById('buttonWoud').style.display = "inline";
 		document.getElementById('buttonTemShop').style.display = "inline";
 	} else if (Location == "Mountain") {
@@ -316,15 +317,6 @@ function closeMenu() {
 	} else if (Location == "entranceCastle") {
 		document.getElementById('buttonMountain').style.display = "inline";
 		document.getElementById('buttonEnterCastle').style.display = "inline";
-	} else if (Location == "Hut 1") {
-		document.getElementById('buttonTemVillage').style.display = "inline";
-		if (items.kelderKey == true) {
-			document.getElementById('actionBasementKey').style.display = "none";
-		} else {
-			document.getElementById('actionBasementKey').style.display = "inline";
-		}
-	} else if (Location == "Hut 2") {
-		document.getElementById('buttonTemVillage').style.display = "inline";
 	} else if (Location == "Volcano") {
 		document.getElementById('buttonMountain').style.display = "inline";
 		document.getElementById('buttonJumpVolcano').style.display = "inline";
@@ -373,17 +365,8 @@ function actionFrontdoorKey() {
 	clearTimeout(Clear);
 	items.huisKey = true;
 	itemsInfo.huisKeyInfo = true;
-	document.getElementById('story1').innerHTML = "U founb da frontdoor key!";
+	document.getElementById('story1').innerHTML = "U found da frontdoor key!";
 	document.getElementById('actionFrontdoorKey').style.display = "none";
-	Clear = setTimeout(clear, 3000);
-}
-
-function actionBasementKey() {
-	clearTimeout(Clear);
-	items.kelderKey = true;
-	itemsInfo.kelderKeyInfo = true;
-	document.getElementById('story1').innerHTML = "U founb da basement key";
-	document.getElementById('actionBasementKey').style.display = "none";
 	Clear = setTimeout(clear, 3000);
 }
 
@@ -391,7 +374,7 @@ function startStory() {
 	document.getElementById('music1').play();
 	document.getElementById('musicStart').pause();
 	document.getElementById('story1').innerHTML = "hOI!!";
-	document.getElementById('story2').innerHTML = "Welcom t: DA TEM ADVENTURE GAME!<br>U r a Tem but u 4got your name."
+	document.getElementById('story2').innerHTML = "Welcom t: DA TEM ADVENTURE GAME!<br>U r a Tem but u forgot your name."
 	document.getElementById('storyLine').style.backgroundImage = "url('img/Temmie.png')";
 	document.getElementById('storyLine').style.backgroundSize = "50% 100%";
 	document.getElementById('storyLine').style.backgroundPosition = "305px 0px";
@@ -424,8 +407,8 @@ function toDeurWoud() {
 		document.getElementById('buttonWoud').style.cursor = "pointer";
 	} else {
 		clearTimeout(Clear);
-		document.getElementById('story1').innerHTML = "A key is needeb!";
-		console.log('A key is needeb!');
+		document.getElementById('story1').innerHTML = "A key is needed!";
+		console.log('A key is needed!');
 		itemsInfo.huisKeyInfo = true;
 		Clear = setTimeout(clear, 3000);
 	}
@@ -442,13 +425,13 @@ function toWoud() {
 	document.getElementById('buttonVolcano').style.display = "none";
 	document.getElementById('buttonCastle').style.display = "none";
 	document.getElementById('buttonCave').style.display = "none";
-	document.getElementById('buttonHut1Pie').style.display = "none";
+	document.getElementById('TemmiePie').style.display = "none";
 	document.getElementById('buttonGang').style.display = "inline";
 	document.getElementById('buttonStrand').style.display = "inline";
 	document.getElementById('buttonTemVillage').style.display = "inline";
-	document.getElementById('buttonHut1').style.display = "none";
+	document.getElementById('Temmie1').style.display = "none";
 	document.getElementById('buttonMountain').style.display = "inline";
-	document.getElementById('buttonHut2').style.display = "none";
+	document.getElementById('Temmie2').style.display = "none";
 	document.getElementById('buttonZee').style.display = "none";
 	document.getElementById('buttonTemShop').style.display = "none";
 	document.getElementById('buttonSeaBoat').style.display = "none";
@@ -634,15 +617,18 @@ function toSlaapkamer() {
 
 function fillWateringCan() {
 	if (items.wateringCanFilled == false && items.wateringCan == true) {
+		clearTimeout(Clear);
 		console.log('you fill the watering can');
 		document.getElementById('story1').innerHTML = "u FILL tha WateRinG CaN";
 		items.wateringCanFilled = true;
 		Clear = setTimeout(clear, 3000);
 	} else if (items.wateringCanFilled == true) {
+		clearTimeout(Clear);
 		console.log('the watering can is already filled');
 		document.getElementById('story1').innerHTML = "iT's AlrEADy fIllEd";
 		Clear = setTimeout(clear, 3000);
 	} else {
+		clearTimeout(Clear);
 		document.getElementById('story1').innerHTML = "U NeEd A WateRinG CaN";
 		itemsInfo.wateringCanInfo = true;
 		Clear = setTimeout(clear, 3000);
@@ -668,7 +654,9 @@ function toStrand() {
 
 function toZee() {
 	if (items.boat == true) {
+		clearTimeout(Clear);
 		document.getElementById('story1').innerHTML = "THa ROCks r toO pOiNty To PLacE tHa boAt oN";
+		Clear = setTimeout(clear, 3000);
 	} else {
 		console.log('Player goes to "Da sea"');
 		document.getElementById('buttonWoud').style.display = "none";
@@ -701,73 +689,55 @@ function toTemVillage() {
 	document.getElementById('buttonStrand').style.display = "none";
 	document.getElementById('buttonGang').style.display = "none";
 	document.getElementById('buttonTemVillage').style.display = "none";
-	document.getElementById('actionBasementKey').style.display = "none";
 	document.body.style.backgroundImage = "url('img/TemVillage.png')";
 	if (Storyline.Temvillage == false) {
 		clearTimeout(Clear);
-		document.getElementById('story1').innerHTML = "U Kind Of ReMEmbEr this vILlagE.";
+		document.getElementById('story1').innerHTML = "U kind of remember this village.";
 		Storyline.Temvillage = true;
 		setTimeout(toTemVillage, 4000);
 	} else {
 		document.getElementById('buttonWoud').style.display = "inline";
-		document.getElementById('buttonHut2').style.display = "inline";
+		document.getElementById('Temmie1').style.display = "inline";
+		document.getElementById('Temmie2').style.display = "inline";
+		document.getElementById('TemmiePie').style.display = "inline";
 		document.getElementById('buttonTemShop').style.display = "inline";
 		document.getElementById('storyLine').style.backgroundImage = "";
 		document.getElementById('story1').innerHTML = "";
-		if (actions.givePie == true) {
-			document.getElementById('buttonHut1').style.display = "inline";
-		} else {
-			document.getElementById('buttonHut1Pie').style.display = "inline";
-		}
 	}
 }
 
-function toHut1Pie() {
+function givePie() {
 	if (items.pie == true) {
 		clearTimeout(Clear);
 		items.pie = false;
 		actions.givePie = true;
-		document.getElementById('story1').innerHTML = "Tem: T!!!! FoR THa piE";
+		items.kelderKey = true;
+		document.getElementById('story1').innerHTML = "Tem: T!!!! for tha pie!<br>(You got the basement key!)";
 		document.getElementById('buttonHut1Pie').style.display = "none";
 		document.getElementById('buttonHut1').style.display = "inline";
 		Clear = setTimeout(clear, 3000);
 	} else {
 		clearTimeout(Clear);
-		document.getElementById('story1').innerHTML = "Tem: bRiNG tEm a piE";
+		document.getElementById('story1').innerHTML = "Tem: bring Tem a pie";
 		Clear = setTimeout(clear, 3000);
 	}
 }
 
-function toHut1() {
-	Location = "Hut 1";
-	console.log('Player goes into "Hut 1"')
-	document.getElementById('locatie').innerHTML = "Location: Hut 1";
-	document.getElementById('story1').innerHTML = "";
-	document.body.style.backgroundImage = "";
-	document.getElementById('buttonHut1').style.display = "none";
-	document.getElementById('buttonHut2').style.display = "none";
-	document.getElementById('buttonTemShop').style.display = "none";
-	document.getElementById('buttonWoud').style.display = "none";
-	document.getElementById('buttonTemVillage').style.display = "inline";
-	if (items.kelderKey == true) {
-		document.getElementById('actionBasementKey').style.display = "none";
-	} else {
-		document.getElementById('actionBasementKey').style.display = "inline"
-	}
+function talkTemmie1() {
+	clearTimeout(Clear);
+	console.log('Player talks to Temmie');
+	document.getElementById('story1').innerHTML = "hOI!!<br>im Temmie!!!";
+	setTimeout(function(){
+		document.getElementById('story1').innerHTML = "and dis is Tems friend...<br>Temmie!!!";
+		Clear = setTimeout(clear, 3000);
+	}, 3000);
 }
 
-function toHut2() {
-	Location = "Hut 2";
-	console.log('Player goes into "Hut 2"')
-	document.getElementById('story1').innerHTML = "";
-	document.body.style.backgroundImage = "";
-	document.getElementById('buttonHut1').style.display = "none";
-	document.getElementById('buttonHut1Pie').style.display = "none";
-	document.getElementById('buttonHut2').style.display = "none";
-	document.getElementById('buttonTemShop').style.display = "none";
-	document.getElementById('buttonWoud').style.display = "none";
-	document.getElementById('buttonTemVillage').style.display = "inline";
-	document.getElementById('locatie').innerHTML = "Location: Hut 2";
+function talkTemmie2() {
+	clearTimeout(Clear);
+	console.log('Player talks to Temmie')
+	document.getElementById('story1').innerHTML = "hOI!! im Temmie!!!<br>don forget my friend!";
+	Clear = setTimeout(clear, 3000);
 }
 
 function toTemShop() {
@@ -781,9 +751,9 @@ function toTemShop() {
 	document.getElementById('storyLine').style.backgroundPosition = "305px 0px";
 	document.getElementById('locatie').innerHTML = "Da Tem shop ";
 	document.getElementById('story1').innerHTML = "";
-	document.getElementById('buttonHut1').style.display = "none";
-	document.getElementById('buttonHut1Pie').style.display = "none";
-	document.getElementById('buttonHut2').style.display = "none";
+	document.getElementById('Temmie1').style.display = "none";
+	document.getElementById('TemmiePie').style.display = "none";
+	document.getElementById('Temmie2').style.display = "none";
 	document.getElementById('buttonWoud').style.display = "none";
 	document.getElementById('buttonTemShop').style.display = "none";
 	document.getElementById('buttonBackTemVillage').style.display = "inline";
@@ -1005,17 +975,16 @@ function seaBoat() {
 	document.getElementById('buttonZee').style.display = "none";
 	document.getElementById('buttonSeaBoat').style.display = "none";
 	document.getElementById('buttonWoud').style.display = "none";
-	/*document.getElementById('story1').innerHTML = "Tem: TEm wOulD likE u to plAY wiTh Tem AGAin.<br>wOuld u Like To plAy agAin?";*/
 	document.getElementById('locatie').style.display = "none";
 	document.getElementById('buttonMenuOpen').style.display = "none";
-	document.getElementById('buttonPlayAgain').style.display = "inline";
 	setTimeout(function(){
 		document.getElementById('story1').innerHTML = "U plAce DOwN thA bOat.";
 		setTimeout(function(){
 			document.getElementById('story1').innerHTML = "aS u RoW aWaY from THA SHOre, u REALIzE you'll bE missing TheM.";
 			setTimeout(function() {
 				document.getElementById('story1').innerHTML = "noW ThAD u R tOo fAr AwAY tO TurN back, u RegrET uR DECIsiOn .";
-			}, 10000);
+				document.getElementById('buttonPlayAgain').style.display = "inline";
+			}, 6000);
 		}, 4000);
 	}, 2000);
 }
