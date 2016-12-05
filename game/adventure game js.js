@@ -703,6 +703,7 @@ function toTemVillage() {
 	document.getElementById('buttonGang').style.display = "none";
 	document.getElementById('buttonTemVillage').style.display = "none";
 	document.getElementById('actionBasementKey').style.display = "none";
+	document.body.style.backgroundImage = "url('img/TemVillage.png')";
 	if (Storyline.Temvillage == false) {
 		clearTimeout(Clear);
 		document.getElementById('story1').innerHTML = "U Kind Of ReMEmbEr this vILlagE.";
@@ -743,6 +744,7 @@ function toHut1() {
 	console.log('Player goes into "Hut 1"')
 	document.getElementById('locatie').innerHTML = "Location: Hut 1";
 	document.getElementById('story1').innerHTML = "";
+	document.body.style.backgroundImage = "";
 	document.getElementById('buttonHut1').style.display = "none";
 	document.getElementById('buttonHut2').style.display = "none";
 	document.getElementById('buttonTemShop').style.display = "none";
@@ -759,6 +761,7 @@ function toHut2() {
 	Location = "Hut 2";
 	console.log('Player goes into "Hut 2"')
 	document.getElementById('story1').innerHTML = "";
+	document.body.style.backgroundImage = "";
 	document.getElementById('buttonHut1').style.display = "none";
 	document.getElementById('buttonHut1Pie').style.display = "none";
 	document.getElementById('buttonHut2').style.display = "none";
@@ -772,6 +775,7 @@ function toTemShop() {
 	Location = "TemShop";
 	console.log('Player goes to "Da TEm SHop"')
 	console.log('Tem: wELCoM to Da TEm sHop!!')
+	document.body.style.backgroundImage = "";
 	document.getElementById('storyLine').style.backgroundImage = "url('img/TemShop.gif')";
 	document.getElementById('storyLine').style.backgroundRepeat = "no-repeat";
 	document.getElementById('storyLine').style.backgroundSize = "50% 100%";
