@@ -33,7 +33,6 @@ var Storyline = {
 	Kitchen: false,
 	Bedroom: false,
 	Temvillage: false,
-	Hut2: false,
 	Beach: false,
 	Volcano: false
 }
