@@ -745,6 +745,7 @@ function toTemShop() {
 	console.log('Player goes to "Da TEm SHop"')
 	console.log('Tem: wELCoM to Da TEm sHop!!')
 	document.body.style.backgroundImage = "";
+	document.body.style.backgroundColor = "rgb(27,33,90)";
 	document.getElementById('storyLine').style.backgroundImage = "url('img/TemShop.gif')";
 	document.getElementById('storyLine').style.backgroundRepeat = "no-repeat";
 	document.getElementById('storyLine').style.backgroundSize = "50% 100%";
