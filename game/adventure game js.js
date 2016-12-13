@@ -417,8 +417,6 @@ function toKeuken() {
 	} else {
 		document.body.style.backgroundImage = "url('img/Keuken2.png')";
 	}
-	document.body.style.backgroundRepeat = "no-repeat";
-	document.body.style.backgroundSize = "100% 100%";
 	if (Storyline.Kitchen == false) {
 		clearTimeout(Clear);
 		document.getElementById('story1').innerHTML = "u enTEr tHa KitChen.<br>iT smElLs LIkE ThA PiE hAS jUST bEen baKed.";
@@ -445,7 +443,6 @@ function toGang() {
 	Location = "Hallway";
 	console.log('Player goes to "Hallway"');
 	document.getElementById('locatie').innerHTML = "Location: Hallway";
-	document.body.style.backgroundColor = "blue";
 	document.body.style.backgroundImage = "url('img/Hallway.png')";
 	document.getElementById('buttonWoud').style.display = "inline";
 	document.getElementById('buttonKeuken').style.display = "none";
@@ -551,8 +548,6 @@ function toSlaapkamer() {
 	document.getElementById('locatie').innerHTML = "Location: Bedroom";
 	console.log('Player goes to "Bedroom"');
 	document.body.style.backgroundImage = "url('img/bedroom.png')";
-	document.body.style.backgroundRepeat = "no-repeat";
-	document.body.style.backgroundSize = "100% 100%"
 	document.getElementById('buttonHuis').style.display = "none";
 	document.getElementById('buttonWoud').style.display = "none";
 	document.getElementById('buttonKelder').style.display = "none";
