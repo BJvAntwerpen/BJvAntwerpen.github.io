@@ -1,5 +1,45 @@
-body {background-color: darkturquoise;}
-h1, h2 {color: dodgerblue; border: 4px dotted forestgreen; border-bottom-style: solid;}
-p {font-size: 20px;}
-img {float: right;}
-.center {text-align: center;}
+body {
+	background-color: darkturquoise;
+}
+
+h1, h2 {
+	color: dodgerblue;
+	border: 4px dotted forestgreen;
+	border-bottom-style: solid;
+}
+
+p {
+	font-size: 20px;
+}
+
+img {
+	float: right;
+}
+
+.center {
+	text-align: center;
+}
+
+ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	background-color: black;
+}
+
+li {
+	display: inline;
+}
+
+li a {
+	text-decoration: none;
+	color: white;
+}
+
+li a:hover:not(.active) {
+	background-color: grey;
+}
+
+.active {
+	background-color: green;
+}
