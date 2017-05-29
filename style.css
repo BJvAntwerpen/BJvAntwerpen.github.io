@@ -13,7 +13,8 @@ p {
 }
 
 img {
-	float: right;
+	position: absolute;
+	right: 10px;
 }
 
 .center {
