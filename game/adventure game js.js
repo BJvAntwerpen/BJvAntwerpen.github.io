@@ -129,6 +129,7 @@ function openMenu() {
 	document.getElementById('confirmResetFalse').style.display = "none";
 	document.getElementById('buttonMenuClose').style.display = "inline";
 	document.getElementById('itemList').style.display = "inline";
+	document.getElementById('buttonHome').style.display = "inline"
 	document.getElementById('textConfirmReset').style.display = "none";
 	console.log('MENU geopend');
 
@@ -208,6 +209,7 @@ function closeMenu() {
 	document.getElementById('Menu').style.backgroundColor = "rgba(0,0,0,0)";
 	document.getElementById('buttonMenuOpen').style.display = "inline";
 	document.getElementById('buttonReset').style.display = "none";
+	document.getElementById('buttonHome').style.display = "none"
 	document.getElementById('buttonMenuClose').style.display = "none";
 	document.getElementById('itemList').style.display = "none";
 	console.log('MENU gesloten');
