@@ -211,6 +211,10 @@ p {
 	text-shadow: 1px 0 0 #FFF, -1px 0 0 #FFF, 0 1px 0 #FFF, 0 -1px 0 #FFF, 1px 1px #FFF, -1px -1px 0 #FFF, 1px -1px 0 #FFF, -1px 1px 0 #FFF;
 }
 
+a {
+	text-decoration: none;
+}
+
 .buttonTopRight {
 	width: 100px;
 	height: 100px;
@@ -343,7 +347,7 @@ button {
 	cursor: pointer;
 }
 
-#buttonStart {
+#buttonStart, #buttonHome {
 	display: inline;
 }
 

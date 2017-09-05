@@ -346,6 +346,7 @@ function startStory() {
 	document.getElementById('storyLine').style.backgroundRepeat = "no-repeat";
 	document.getElementById('buttonNext').style.display = "inline";
 	document.getElementById('buttonStart').style.display = "none";
+	document.getElementById('buttonHome').style.display = "none";
 	document.body.style.backgroundColor = "red";
 	console.log('hOI!!');
 }
