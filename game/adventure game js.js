@@ -1079,3 +1079,8 @@ function becomeKingQueen() {
 		itemsInfo.goldenCrownInfo = true;
 	}
 }
+
+function loadURL(newLocation) {
+	window.location = newLocation;
+	return false;
+}
