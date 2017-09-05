@@ -349,6 +349,8 @@ function startStory() {
 	document.getElementById('buttonNext').style.display = "inline";
 	document.getElementById('buttonStart').style.display = "none";
 	document.getElementById('buttonHome').style.display = "none";
+	document.getElementById('undertale').style.display = "none";
+	document.getElementById('UTinfo').style.display = "none";
 	document.body.style.backgroundColor = "red";
 	console.log('hOI!!');
 }
