@@ -1,8 +1,8 @@
 body {
 	background-color: green;
 	margin: 10px;
-	width: 1526px;
-	height: 739px;
+	width: 1522px;
+	height: 734px;
 }
 
 h1 {
@@ -120,8 +120,8 @@ h1 {
 }
 
 #Menu {
-	width: 1536px;
-	height: 758px;
+	width: 1534px;
+	height: 756px;
 	position: absolute;
 	left: 0px;
 	top: 0px;
@@ -213,6 +213,8 @@ p {
 
 a {
 	text-decoration: none;
+	position: absolute;
+	z-index: 1;
 }
 
 .buttonTopRight {
