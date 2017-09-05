@@ -347,12 +347,6 @@ button {
 	display: inline;
 }
 
-button:nth-of-type(4) {
-	position: absolute;
-	top: 127px;
-	left: 127px;
-}
-
 button:nth-of-type(5) {
 	position: absolute;
 	top: 127px;
@@ -366,6 +360,12 @@ button:nth-of-type(6) {
 }
 
 button:nth-of-type(7) {
+	position: absolute;
+	top: 127px;
+	left: 127px;
+}
+
+button:nth-of-type(8) {
 	position: absolute;
 	top: 127px;
 	left: 127px;
