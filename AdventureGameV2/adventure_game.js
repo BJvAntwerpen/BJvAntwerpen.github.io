@@ -99,7 +99,7 @@ var gameModule = (function() {
 		d.setTime(d.getTime() + (1000*60*exdays))
 		var expires = "expires="+ d.toUTCString();
 		var saveData = JSON.stringify(gameWalls.Hallway3);
-		saveData = encodeURIComponent(saveData);
+		//saveData = encodeURIComponent(saveData);
 		document.cookie = 'saveGameWalls=' + saveData + ';' + expires + ';path=/';
 	};
 
