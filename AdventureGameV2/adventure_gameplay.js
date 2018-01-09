@@ -1,5 +1,4 @@
 var gameplayModule = (function() {
-	var items = ['','','','','','','',''];
 	var hallway = 1;
 	var flameInterval,transInterval;
 	var alpha = 0;
@@ -23,6 +22,22 @@ var gameplayModule = (function() {
 				clearInterval(transInterval);
 			}		
 		},timer);
+	};
+
+	var continueFromSave = function() {
+		console.log('WIP');//load game from cookie 'save'
+		var cookie = decodeURIComponent(document.cookie);
+		for (var name in gameWalls) {
+			console.log('name');
+			console.log(name);
+			console.log('gameWalls[name]');
+			console.log(gameWalls[name]);
+		}
+		//cookie = JSON.parse(cookie);
+		console.log(cookie);
+		/*
+		decodeURIcomponent -> JSON.parse
+		*/
 	};
 
 	var start = function() {
@@ -264,7 +279,6 @@ var gameplayModule = (function() {
 			var collectItem = td[i].getAttribute('data-item');
 			if (collectItem == item) {
 				td[i].setAttribute('data-item', 'no_item');
-				items[i] = '';
 				td[i].className = 'inactive';
 			}
 		}
@@ -280,18 +294,14 @@ var gameplayModule = (function() {
 					case 'pie':
 						td[i].className += ' pieslice';
 						document.getElementById('pie').style.backgroundImage = 'url(img/misc/spr_bigpie_1.png)';
-						items[i] = 'pie';
 						break;
 					case 'key':
 						td[i].className += ' key';
-						items[i] = 'key';
 						break;
 					case 'toyKnife':
 						td[i].className += ' toyknife';
-						items[i] = 'toy knife';
 						break;
 				}
-				console.log(items);
 				break;
 			}
 		}		
@@ -300,6 +310,7 @@ var gameplayModule = (function() {
 	return {
 		transition:transition,
 		start: start,
+		continueFromSave:continueFromSave,
 		toHallway: toHallway,
 		changeHallwaySection: changeHallwaySection,
 		toRoom: toRoom,

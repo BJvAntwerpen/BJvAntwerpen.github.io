@@ -10,9 +10,9 @@
 
 var gameWalls = {
 	MyBedroom: {
-		walls:[//rgba(0,0,0,1)
+		walls:[
 			[
-				{X:707,Y:734},//start
+				{X:707,Y:734},
 				{X:707,Y:663},
 				{X:93,Y:663},
 				{X:93,Y:272},
@@ -34,14 +34,14 @@ var gameWalls = {
 				{X:900,Y:734}
 			]
 		],
-		exits:[//rgba(0,255,0,1)
+		exits:[
 			{
 				area:{X:707,Y:722,W:191,H:10},
 				event:'gameplayModule.toHallway',
 				pos: {X:748,Y:305}
 			}
 		],
-		interactions:[//rgba(255,0,255,1)
+		interactions:[
 			{
 				area:{X:259,Y:217,W:90,H:24},
 				event:'audioModule.checkAudio',
@@ -52,7 +52,7 @@ var gameWalls = {
 	Hallway1: {
 		walls:[
 				[
-					{X:0,Y:352},//start
+					{X:0,Y:352},
 					{X:698,Y:352},
 					{X:698,Y:390},
 					{X:814,Y:390},
@@ -78,14 +78,14 @@ var gameWalls = {
 				area:{X:1040,Y:353,W:10,H:280},
 				event: 'gameplayModule.changeHallwaySection',
 				args: ['next'],
-				pos: {X:256,Y:'Y'}//410
+				pos: {X:256,Y:'Y'}
 			}
 		]
 	},
 	Hallway2: {
 		walls:[
 				[
-					{X:0,Y:352},//start
+					{X:0,Y:352},
 					{X:84,Y:352},
 					{X:84,Y:390},
 					{X:196,Y:390},
@@ -110,20 +110,20 @@ var gameWalls = {
 				area:{X:0,Y:353,W:10,H:280},
 				event: 'gameplayModule.changeHallwaySection',
 				args: ['prev'],
-				pos: {X:1212,Y:'Y'}//410
+				pos: {X:1212,Y:'Y'}
 			},
 			{
 				area:{X:1040,Y:353,W:10,H:280},
 				event: 'gameplayModule.changeHallwaySection',
 				args: ['next'],
-				pos: {X:256,Y:'Y'}//410
+				pos: {X:256,Y:'Y'}
 			}
 		]
 	},
 	Hallway3: {
 		walls:[
 				[
-					{X:0,Y:352},//start
+					{X:0,Y:352},
 					{X:310,Y:352},
 					{X:310,Y:375},
 					{X:390,Y:375},
@@ -140,7 +140,7 @@ var gameWalls = {
 				area:{X:0,Y:353,W:10,H:280},
 				event: 'gameplayModule.changeHallwaySection',
 				args: ['prev'],
-				pos: {X:1212,Y:'Y'}//410
+				pos: {X:1212,Y:'Y'}
 			}
 		],
 		interactions:[
