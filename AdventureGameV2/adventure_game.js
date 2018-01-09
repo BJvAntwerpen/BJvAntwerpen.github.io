@@ -95,12 +95,11 @@ var gameModule = (function() {
 	var saveGame = function() {
 		var exdays = 5;
 		var d = new Date();
-		var setting = 'saveGameWalls';
 		//d.setTime(d.getTime() + (exdays*24*60*60*1000));
 		d.setTime(d.getTime() + (1000*60*exdays))
 		var expires = "expires="+ d.toUTCString();
-		var saveData = JSON.stringify(gameWalls.MyBedroom);
-		document.cookie = setting + '=' + saveData + ';' + expires + ';path=/';
+		var saveData = JSON.stringify(gameWalls);
+		document.cookie = 'saveGameWalls=' + saveData + ';' + expires + ';path=/';
 	};
 
 	var testSave = function() {
