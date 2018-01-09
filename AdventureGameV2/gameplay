@@ -1,0 +1,50 @@
+play as: Asriel
+button/img: clickable interactions
+sprites: 
+	Home (kitchen, livingRoom, entrance, hallway, rooms)
+	New Home (kitchen, livingRoom, entrance, hallway, rooms)
+	spr_slice_o
+	unnamed_98 (sprite sheet Ruins)
+	unnamed_105 (sprite sheet Snowdin Forest)
+	unnamed_301/304 (sprite sheet Waterfall)
+	unnamed_305 (sprite sheet CORE)
+	unnamed_307 (sprite sheet Hotland)
+	unnamed_309 (bg Hotland)
+
+Items:
+	apron, frypan, monstercandy, pieslice, ribbon, stick, toyknife, tutu: tested
+	cowboy hat, empty gun, manly bandanna, tough glove, cloudy glasses, torn notebook, bandage, ballet shoes: sprites needed
+	end: heart locket
+
+music: UNDERTALE OSTs
+	001 (Once Upon A Time) intro into story about 1:29 long
+	002 (Start Menu) (first)
+	005 (Ruins) if area == 'Ruins'
+	010 (Ghost Fight) if fight/talk == 'Blooky'
+	011 (Determination) gameover
+	012 (Home) if area == 'Home' (Toriel's house)
+	013 (Home(Music Box)) if area == 'Home' (Toriel's house) && DAY2.help_Frisk_adjust == true [is an option when in area == 'Home']
+	022 (Snowdin Town) if area == 'SnowdinTown'
+	031 (Waterfall) if area == 'Waterfall'
+	033 (Quiet Water) if area == 'Waterfall_Special'
+	034 (Memory) Special unlock (Asriel's fav)
+	036 (Dummy!) if fight/talk == 'Mad Dummy'
+	037 (Pathetic House) if area == 'Blooky_House'
+	038-039-040 unlockables in 'Blooky_House'
+	043 (Temmie Village) if area == 'TemmieVillage'
+	051 (Another Medium) if area == 'Hotlands'
+	065 (CORE) if area == 'CORE'
+
+story:
+	DAY 1:
+		Asriel walks around in the Ruins 'exploring'. Need to solve puzzles to continue (1 gameover). Finds Frisk at the beginning, wounded. Helps Frisk and calls for help from parents. END DAY 1
+
+	DAY 2:
+		Help move to New Home (help packing things, help Frisk adjust)[if 'help packing things' is done before 'help Frisk adjust', player loses a bonus + slightly different text/actions from Frisk]{when player is done with either 'quests' continue to //AFTERNOON//}.
+	//AFTERNOON// [Actions change the time. Certain actions can only be done on certain days/times]
+	QUESTS:
+		Help bake a pie: chose between Snail Pie or Butterscotch-Cinnamon Pie.
+			Snail Pie: Asriel's fav. Frisk doesn't eat it if [help_frisk_adjust == false] but if [help_frisk_adjust == true] says ?'has an acquired taste.'? Gives quest GetSnails
+			Butterscotch-Cinnamon Pie: normal. Asriel sad but thinks that it's better for Frisk[helps frisk adjust more]. Gives quest ShoppingTime
+		GetSnails: help get snails for Toriel's Snail Pie. Bought at snail farm near area == 'Blooky_House'. costs 25G (gained from Toriel)
+		ShoppingTime: help get sugar and cinnamon for the ButtsPie. 2 diff shops (Snowdin[cinnamon], waterfall[sugar]). costs 60G total (gained from Toriel [20G cinnamon, 40G sugar]).

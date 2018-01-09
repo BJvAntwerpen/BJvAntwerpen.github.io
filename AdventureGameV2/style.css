@@ -1,0 +1,496 @@
+@font-face {
+	font-family: UndertaleFont;
+	src: url(fonts/DeterminationMonoWeb.woff);
+}
+
+body {
+	background: #000 url("") no-repeat fixed center;
+	background-size: 1050px 735px;
+	font-family: UndertaleFont;
+	font-size: 24px;
+	color: white;
+	user-select: none;
+}
+
+canvas {
+	position: absolute;
+	top: 0%;
+	left: 242px;
+	z-index: -1;
+}
+
+h2 {
+	display: none;
+}
+
+table, tr, td {
+	border-collapse: collapse;
+}
+
+td {
+	width: 80px;
+	height: 80px;
+	background: rgba(255,255,255,0.2) url('') no-repeat center;
+}
+
+.hover {
+	border: 2px solid yellow;
+}
+
+.active {
+	border: 2px solid green;
+	background-color: rgba(0, 255, 0, 0.4);
+}
+
+.inactive {
+	border: 2px solid rgb(125, 125, 125);
+	background-color: rgba(175, 175, 175, 0.5);
+}
+
+section {
+	display: inline-block;
+}
+
+#menu {
+	position: absolute;
+	top: 16%;
+	left: 5%;
+}
+
+#inventory {
+	display: none;
+	position: absolute;
+	top: 25%;
+	left: 2%;
+}
+
+#dialogBox {
+	width: 960px;
+	height: 150px;
+	position: absolute;
+	top: 1%;
+	left: 0%;
+	background-color: black;
+	border: 2px solid white;
+	color: white;
+	z-index: 4999;
+}
+
+#location {
+	position: absolute;
+	top: -2%;
+	left: 17%;
+	z-index: 1000;
+}
+
+#locate {
+	position: absolute;
+	top: -2%;
+	left: 28%;
+	z-index: 1000;
+}
+
+#startNew {
+	top: 40%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+#continue {
+	top: 60%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.btnMain {
+	position: absolute;
+	z-index: 1000;
+	border: 5px solid white;
+	padding: 45px 0;
+	width: 400px;
+	height: 30px;
+	margin: 0;
+	text-align: center;
+}
+
+.selected {
+	border: 5px solid green!important;
+	background-color: white;
+	color: green;
+}
+
+.false {
+	background-color: red;
+}
+
+.true {
+	background-color: lime;
+}
+
+.no-save {
+	border: 5px solid grey;
+	color: grey;
+}
+
+#autoSaveCheckbox {
+	position: absolute;
+	border: 5px solid white;
+	text-align: center;
+	top: 72%;
+	left: 39%;
+	transform: translate(-50%, -50%);
+	z-index: 1000;
+	width: 25px;
+	height: 25px;
+}
+
+#autoSave {
+	position: absolute;
+	top: 72%;
+	left: 47%;
+	transform: translate(-50%, -50%);
+	z-index: 1000;
+}
+
+#dialogText {
+	position: absolute;
+	left: 190px;
+	width: 800px;
+	height: 140px;
+	padding: 4px 1px 0 5px;
+}
+
+#textFace {
+	background: #000 url("") no-repeat center;
+	width: 150px;
+	height: 150px;
+	position: relative;
+	right: 10px;
+}
+
+#torielGlasses {
+	background: #000 url("img/misc/spr_torielglasses.png");
+	background-size: 100% 100%;
+	position: absolute;
+	top: 96px;
+	left: 66px;
+	width: 49.9px;
+	height: 10px;
+	z-index: 1;
+	display: none;
+
+}
+
+.btnHor {
+	width: 160px;
+	height: 80px;
+}
+
+.btnVer {
+	width: 80px;
+	height: 160px;
+}
+
+.btnRound {
+	width: 100px;
+	height: 100px;
+}
+
+.btnRoundBig {
+	width: 150px;
+	height: 150px;
+}
+
+/*div*/
+#player {
+	cursor: default;
+	background: url('img/player/Asriel/spr_asriel_d_0.png') no-repeat center;
+	background-size: 100% 100%;
+	width: 55px;
+	height: 94px;
+	z-index: 10;
+	/*display: inline!important;*/
+}
+
+#bg {
+	cursor: default;
+	top: 0%;
+	left: 15.7%;
+	width: 1052px;
+	height: 100%;
+	z-index: 0;
+	background: black url('img/Locations/AzzyBedroom.png') no-repeat fixed center;
+	background-size: 1049px 732px;
+	display: inline;
+}
+
+#trans {
+	cursor: default;
+	top: 0%;
+	left: 15.7%;
+	width: 1052px;
+	height: 100%;
+	z-index: 50!important;
+	background: rgba(0,0,0,0);
+	background-size: 1049px 732px;
+	display: inline;
+}
+
+div {
+	display: none;
+	position: absolute;
+}
+
+#homeFlame {
+	width: 60px;
+	height: 40px;
+	background: url("img/animate/spr_homeflame_0.png") no-repeat center;
+	background-size: 100% 100%;
+	top: 23.9%;
+	left: 49.8%;
+	z-index: 175;
+}
+
+#torielReading {
+	width: 160px;
+	height: 160px;
+	background: url("img/animate/spr_chairiel_0.png") no-repeat center;
+	background-size: 100% 100%;
+	top: 20.9%;
+	left: 38.9%;
+	z-index: 154;
+}
+
+#cactus {
+	top: 71%;
+	left: 68.5%;
+	width: 145px;
+	height: 150px;
+	background: url("img/misc/spr_cactus.png") no-repeat center;
+	background-size: 100% 100%;
+	z-index: 522;
+}
+
+#misc {
+	top: 34.5%;
+	left: 62.9%;
+	width: 18px;
+	height: 138px;
+	background: url("img/misc/spr_railingpieceshort.png") no-repeat center;
+	background-size: 100% 100%;
+	z-index: 254;
+}
+
+#pie {
+	width: 118px;
+	height: 63px;
+	background: url("img/misc/spr_bigpie_0.png") no-repeat center;
+	background-size: 100% 100%;
+	top: 27.62%;
+	left: 57.68%;
+	z-index: 203;
+}
+
+#table {
+	background: url("img/misc/spr_diningtable.png") no-repeat center;
+	background-size: 100% 100%;
+	width: 297px;
+	height: 153px;
+	top: 60%;
+	left: 30%;
+	z-index: 441;
+}
+
+#leftchair {
+	background: url("img/misc/spr_leftchair.png") no-repeat center;
+	background-size: 100% 100%;
+	width: 46px;
+	height: 75px;
+	top: 63%;
+	left: 27%;
+	z-index: 462;
+}
+
+#topchair {
+	background: url("img/misc/spr_topchair.png") no-repeat center;
+	background-size: 100% 100%;
+	width: 79px;
+	height: 69px;
+	top: 50.6%;
+	left: 37.1%;
+	z-index: 372;
+}
+
+#rightchair {
+	background: url("img/misc/spr_rightchair.png") no-repeat center;
+	background-size: 100% 100%;
+	width: 52px;
+	height: 102px;
+	top: 60.1%;
+	left: 49.3%;
+	z-index: 442;
+}
+
+#tree {
+	background: url("img/misc/spr_nastytree.png") no-repeat center;
+	background-size: 100% 100%;
+	width: 322px;
+	height: 254.8px;
+	top: 8.4%;
+	left: 40.4%;
+	z-index: 200!important;
+}
+
+#item {
+	background: url("img/items/spr_toyknife.png") no-repeat center;
+	background-size: 100% 100%;
+	width: 39.2px;
+	height: 36.4px;
+	top: 76%;
+	left: 21%;
+}
+
+#test {
+	display: inline/*!important*/;
+	background: url("img/misc/spr_spiketilebg_0.png");
+	background-size: 33% 50%;
+	width: 166px;
+	height: 88px;
+	top: 76.2%;
+	left: 59.0%;
+	border: 1px solid white;
+}
+/*end div*/
+
+/* itemslot items */
+.apron {background-image: url("img/items/spr_apron.png");}
+.frypan {background-image: url("img/items/spr_frypan.png");}
+.key {background-image: url("img/items/spr_key.png");}
+.monstercandy {background-image: url("img/items/spr_monstercandy.png");}
+.pieslice {background-image: url("img/items/spr_pieslice.png");}
+.ribbon {background-image: url("img/items/spr_ribbon.png");}
+.rock {background-image: url("img/items/spr_rock.png");}
+.stick {background-image: url("img/items/spr_stick.png");}
+.toyknife {background-image: url("img/items/spr_toyknife.png");}
+.tutu {background-image: url("img/items/spr_tutu.png");}
+
+
+/* test items for in item slots */
+#itemslot1 {
+	/*background-image: url("img/items/spr_rock.png");*/
+}
+
+#itemslot2 {
+	/*background-image: url("img/items/spr_frypan.png");*/
+}
+
+#itemslot3 {
+	/*background-image: url("img/items/spr_ribbon.png");*/
+}
+
+#itemslot4 {
+	/*background-image: url("img/items/spr_toyknife.png");*/
+}
+
+#itemslot5 {
+	/*background-image: url("img/items/spr_apron.png");*/
+}
+
+#itemslot6 {
+	/*background-image: url("img/items/spr_monstercandy.png");*/
+}
+
+#itemslot7 {
+	/*background-image: url("img/items/spr_stick.png");*/
+}
+
+#itemslot8 {
+	/*background-image: url("img/items/spr_tutu.png");*/
+}
+
+
+/*junk*/
+button, label, input {
+	position: absolute;
+}
+
+#btnPrev {
+	display: inline;
+	top: -50px;
+	left: 1320px;
+	width: 60px;
+	height: 30px;
+}
+
+#btnNext {
+	display: inline;
+	top: -50px;
+	left: 1430px;
+	width: 60px;
+	height: 30px;
+}
+
+#selected {
+	position: absolute;
+	display: inline;
+	top: -70px;
+	left: 1400px;
+}
+
+#labelX {
+	top: 30px;
+	left: 1324px;
+}
+
+#labelY {
+	top: 60px;
+	left: 1324px;
+}
+
+#labelW {
+	top: 90px;
+	left: 1324px;
+}
+
+#labelH {
+	top: 120px;
+	left: 1324px;
+}
+
+#inputX {
+	top: 32px;
+	left: 1350px;
+}
+
+#inputY {
+	top: 62px;
+	left: 1350px;
+}
+
+#inputW {
+	top: 92px;
+	left: 1350px;
+}
+
+#inputH {
+	top: 122px;
+	left: 1350px;
+}
+
+#btnSet {
+	top: 155px;
+	left: 1320px;
+	width: 170px;
+	height: 30px;
+}
+
+#target {
+	top: -10px;
+	left: 1320px;
+	width: 170px;
+	height: 30px;
+}
+
+.disabled {
+	cursor: not-allowed;
+}

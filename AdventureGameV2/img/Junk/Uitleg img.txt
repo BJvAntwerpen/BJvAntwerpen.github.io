@@ -1,0 +1,13 @@
+Puzzle1
+  black= wall
+  grey= wallsprite
+  darkRed= spike
+  red= loweredSpike
+  darkBlue= wallSwitch
+  blue= groundSwitch
+  green= door
+  cyan= sign
+    every switch opens new switch, 1 groundswitch needs a rock to open 'down', rock gotten from 'left'
+    check 'ruinsPuzzle01'
+
+probleem: veel imgs moeten veranderen

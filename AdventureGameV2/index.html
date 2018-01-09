@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Adventure game</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+
+<audio id="audio" loop>
+	<source id="SRC" src="" type="audio/mpeg">
+</audio>
+
+<canvas id="canvas" width="1049px" height="732px" onmousemove="gameModule.checkCoords(event);"></canvas>
+
+<p id="coords">P to stop audio</p>
+
+<p id="startNew" class="btnMain selected">Start new game</p>
+<p id="continue" class="btnMain">Continue</p>
+<p id="autoSaveCheckbox" class="false"></p><p id="autoSave">Auto-save: false</p>
+
+<h2 id="location" data-location="start">Location:</h2><h2 id="locate">Start Menu</h2>
+<h2 id="menu">Menu</h2>
+
+<table id="inventory">
+	<tr>
+		<td id="itemslot1" data-item="key" class="inactive key"></td>
+		<td id="itemslot2" data-item="no_item" class="inactive"></td>
+	</tr>
+	<tr>
+		<td id="itemslot3" data-item="no_item" class="inactive"></td>
+		<td id="itemslot4" data-item="no_item" class="inactive"></td>
+	</tr>
+	<tr>
+		<td id="itemslot5" data-item="no_item" class="inactive"></td>
+		<td id="itemslot6" data-item="no_item" class="inactive"></td>
+	</tr>
+	<tr>
+		<td id="itemslot7" data-item="no_item" class="inactive"></td>
+		<td id="itemslot8" data-item="no_item" class="inactive"></td>
+	</tr>
+</table>
+
+<div id="devmode">
+	<button id="btnPrev" onclick="movementModule.selectNew('prev');">prev</button>
+	<p id="selected" data-group='1'>1</p>
+	<button id="btnNext" onclick="movementModule.selectNew('next');">next</button>
+	<button id="target" onclick="movementModule.changeTarget();">wall</button>
+	<label id="labelX">X:</label>
+	<input id="inputX" type="text" name="X" size="17">
+	<label id="labelY">Y:</label>
+	<input id="inputY" type="text" name="Y" size="17">
+	<label id="labelW">W:</label>
+	<input id="inputW" type="text" name="W" size="17">
+	<label id="labelH">H:</label>
+	<input id="inputH" type="text" name="H" size="17">
+	<button id="btnSet" onclick="movementModule.changeValue();">Set value</button>
+</div>
+
+<div id="bg"></div>
+<div id="trans" data-alpha='0' data-wait='false'></div>
+<div id="player"></div>
+<div id="homeFlame"></div>
+<div id="torielReading"></div>
+<div id="pie"></div>
+<div id="cactus"></div>
+<div id="item"></div>
+<div id="misc"></div>
+<div id="table"></div>
+<div id="leftchair"></div>
+<div id="topchair"></div>
+<div id="rightchair"></div>
+<div id="tree"></div>
+
+<div id="test"></div>
+
+<dialog id="dialogBox"><section id="torielGlasses"></section><section id="textFace"></section><section id="dialogText"></section></dialog>
+
+</body>
+<script type="text/javascript" src="adventure_dialogs.js"></script><!-- dialogs for the dialog box -->
+<script type="text/javascript" src="adventure_walls.js"></script><!-- room walls & interactables for the canvas -->
+<script type="text/javascript" src="adventure_game.js"></script><!-- basic game mechanics -->
+<script type="text/javascript" src="adventure_gameplay.js"></script><!-- gameplay (transition) -->
+<script type="text/javascript" src="adventure_dialog.js"></script><!-- dialog box related -->
+<script type="text/javascript" src="adventure_audio.js"></script><!-- audio for the game -->
+<script type="text/javascript" src="adventure_movement.js"></script><!-- movement (canvas related) -->
+</html>
