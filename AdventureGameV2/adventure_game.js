@@ -98,7 +98,7 @@ var gameModule = (function() {
 		//d.setTime(d.getTime() + (exdays*24*60*60*1000));
 		d.setTime(d.getTime() + (1000*60*exdays))
 		var expires = "expires="+ d.toUTCString();
-		var saveData = JSON.stringify(gameWalls);
+		var saveData = JSON.stringify(gameWalls.Hallway3);
 		saveData = encodeURIComponent(saveData);
 		document.cookie = 'saveGameWalls=' + saveData + ';' + expires + ';path=/';
 	};
