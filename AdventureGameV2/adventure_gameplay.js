@@ -39,6 +39,7 @@ var gameplayModule = (function() {
 		document.getElementById('continue').style.display = 'none';
 		document.getElementById('autoSaveCheckbox').style.display = 'none';
 		document.getElementById('autoSave').style.display = 'none';
+		gameModule.saveGame();
 		audioModule.startAudio('Home', '.mp3', true);
 		audioModule.audioDefault();
 		movementModule.changeControlMode('walking');
