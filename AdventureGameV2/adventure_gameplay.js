@@ -26,15 +26,18 @@ var gameplayModule = (function() {
 
 	var continueFromSave = function() {
 		console.log('WIP');//load game from cookie 'save'
-		var cookie = decodeURIComponent(document.cookie);
+		//var cookie = decodeURIComponent(document.cookie);
+		
 		for (var name in gameWalls) {
-			console.log('name');
-			console.log(name);
-			console.log('gameWalls[name]');
-			console.log(gameWalls[name]);
+			var storage = localStorage.getItem(name);
+			//console.log('name');
+			//console.log(name);MyBedroom
+			//console.log('gameWalls[name]');
+			//console.log(gameWalls[name]);content of 'MyBedroom'
+			console.log(storage);
 		}
-		//cookie = JSON.parse(cookie);
-		console.log(cookie);
+		//cookie = JSON.parse(storage);
+		
 		/*
 		decodeURIcomponent -> JSON.parse
 		*/

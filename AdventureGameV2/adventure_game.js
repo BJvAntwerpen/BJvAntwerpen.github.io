@@ -93,26 +93,22 @@ var gameModule = (function() {
 	};
 
 	var saveGame = function() {
-		var exdays = 5;
-		var d = new Date();
-		//d.setTime(d.getTime() + (exdays*24*60*60*1000));
-		d.setTime(d.getTime() + (1000*60*exdays));
-		var expires = "expires="+ d.toUTCString();
 		var savedAreas = ['Hallway3','Stairway','livingRoom','Kitchen', 'ruinsView']
 		for (var name in gameWalls) {
 			for (var i = 0; i < savedAreas.length; i++) {
 				if (name === savedAreas[i]) {
 					var saveData = encodeURIComponent(JSON.stringify(gameWalls[name]));
-					document.cookie = name + '=' + saveData + ';' + expires + ';path=/';
+					localStorage.setItem(name,saveData);
 				}
 			}
 		}
+		localStorage.setItem('saved', 'true');
 	};
 
 	var testSave = function() {
-		var cookie = document.cookie;
+		var saved = localStorage.getItem('saved');
 		//console.log(cookie);
-		if (cookie == '') {
+		if (saved !== 'true') {
 			document.getElementById('continue').className += ' no-save';
 		}
 	};
