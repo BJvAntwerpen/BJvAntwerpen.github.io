@@ -99,8 +99,7 @@ var gameModule = (function() {
 		d.setTime(d.getTime() + (1000*60*exdays))
 		var expires = "expires="+ d.toUTCString();
 		var saveData = JSON.stringify(gameWalls.MyBedroom);
-		//document.cookie = 'gameWallsSave=' + saveData + ';' + expires + ';path=/';
-		document.cookie = 'gameWallsSave=saveData;' + expires + ';path=/';
+		document.cookie = 'gameWallsSave=' + saveData + ';' + expires + ';path=/';
 	};
 
 	var testSave = function() {
@@ -179,39 +178,4 @@ function changeMode(mode) {
 		document.getElementById('canvas').style.zIndex = '-1';
 		document.getElementById('devmode').style.display = 'none';
 	}
-}
-
-function setCookie(cname,cvalue,exdays) {
-    var d = new Date();
-    d.setTime(d.getTime() + (exdays*60*1000));
-    var expires = "expires=" + d.toGMTString();
-    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
-}
-
-function getCookie(cname) {
-    var name = cname + "=";
-    var decodedCookie = decodeURIComponent(document.cookie);
-    var ca = decodedCookie.split(';');
-    for(var i = 0; i < ca.length; i++) {
-        var c = ca[i];
-        while (c.charAt(0) == ' ') {
-            c = c.substring(1);
-        }
-        if (c.indexOf(name) == 0) {
-            return c.substring(name.length, c.length);
-        }
-    }
-    return "";
-}
-
-function checkCookie() {
-    var user=getCookie("username");
-    if (user != "") {
-        alert("Welcome again " + user);
-    } else {
-       user = prompt("Please enter your name:","");
-       if (user != "" && user != null) {
-           setCookie("username", user, 2);
-       }
-    }
 }
