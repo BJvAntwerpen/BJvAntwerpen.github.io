@@ -54,9 +54,6 @@ var movementModule = (function(){
 		if (alpha === "0" && wait === 'false') {
 			waitTransRoom = true;
 			changeControlMode('none');
-			if (autoSave === true) {
-				gameModule.saveGame();
-			}
 			document.getElementById('trans').setAttribute('data-wait','true');
 			gameplayModule.transition(1,'out');
 		} else if (alpha === "1" && wait === 'true') {
@@ -71,6 +68,9 @@ var movementModule = (function(){
 			selectNew();
 			changeTarget(true);
 			drawRoom();
+			if (autoSave === true || autoSave === 'true') {
+				gameModule.saveGame();
+			}
 			changeControlMode('walking');
 			gameModule.cellClassName(cell, 'inactive');
 			gameplayModule.transition(1,'in');
@@ -80,10 +80,15 @@ var movementModule = (function(){
 
 	var getRoom = function() {
 		location = document.getElementById('location').getAttribute('data-location');
+		if (location === 'start') {
+			autoSave = (document.getElementById('autoSaveCheckbox').className).substr(0,5);
+			autoSave = autoSave.split(' ');
+			autoSave = autoSave[0];
+		}
 		switch(location) {//get current room
 			default:
-				roomWalls = [];
-				roomExits = [];
+				roomWalls = [[{X:150,Y:100},{X:200,Y:100}],[{X:250,Y:100},{X:300,Y:100}],[{X:150,Y:200},{X:300,Y:200}]];
+				roomExits = [{area:{X:135,Y:75,W:185,H:140}}];
 				roomInteractions = [];
 				roomEvents = [];
 				break;
@@ -307,7 +312,7 @@ var movementModule = (function(){
 			if (selected.id === 'startNew') {
 				gameplayModule.start();
 			} else if (selected.id === 'continue') {
-				console.log('WIP');//load game from cookie 'save'
+				gameplayModule.continueFromSave();
 			} else if (selected.id === 'autoSaveCheckbox') {
 				if (autoSave === false) {
 					autoSave = true;
@@ -315,7 +320,7 @@ var movementModule = (function(){
 					autoSave = false;
 				}
 				selected.className = '' + autoSave + ' selected';
-				document.getElementById('autoSave').innerHTML = 'Auto-save: ' + autoSave;
+				document.getElementById('autoSaveText').innerHTML = 'Auto-save: ' + autoSave;
 			}
 		}
 	};
@@ -393,6 +398,9 @@ var movementModule = (function(){
 			gameModule.cellClassName(cell,'hover');
 		} else if (controlMode === 'start') {
 			var selected = document.querySelector('.selected');
+			//autoSave = (document.getElementById('autoSaveCheckbox').className).substr(0,5);
+			//autoSave = autoSave.split(' ');
+			//autoSave = autoSave[0];
 			if (playerData.keys && (playerData.keys[87] === true || playerData.keys[38] === true)) {//u
 				playerData.keys[87] = false;
 				playerData.keys[38] = false;
@@ -783,7 +791,7 @@ var movementModule = (function(){
 						if (number[k] !== undefined) {
 							number[k] += 1;
 						} else {
-							number[k] = 0;
+							number[k] = 1;
 						}
 					}
 				}

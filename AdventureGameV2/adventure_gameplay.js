@@ -25,22 +25,44 @@ var gameplayModule = (function() {
 	};
 
 	var continueFromSave = function() {
-		console.log('WIP');//load game from cookie 'save'
-		//var cookie = decodeURIComponent(document.cookie);
-		
 		for (var name in gameWalls) {
 			var storage = localStorage.getItem(name);
+			if (storage === null) {
+				continue;
+			}
+			storage = JSON.parse(decodeURIComponent(storage));
+			gameWalls[name] = storage;
 			//console.log('name');
 			//console.log(name);MyBedroom
 			//console.log('gameWalls[name]');
 			//console.log(gameWalls[name]);content of 'MyBedroom'
-			console.log(storage);
 		}
-		//cookie = JSON.parse(storage);
-		
-		/*
-		decodeURIcomponent -> JSON.parse
-		*/
+		storage = JSON.parse(decodeURIComponent(localStorage.getItem('bg')));
+		document.getElementById('bg').style.backgroundImage = storage;
+		storage = JSON.parse(decodeURIComponent(localStorage.getItem('position')));
+		document.getElementById('player').style.left = storage.X;
+		document.getElementById('player').style.top = storage.Y;
+		storage = localStorage.getItem('direction');
+		document.getElementById('player').style.backgroundImage = 'url(img/player/Asriel/spr_asriel_'+storage+'_0.png)';
+		storage = JSON.parse(decodeURIComponent(localStorage.getItem('location')));
+		document.getElementById('location').setAttribute('data-location', storage);
+		storage = JSON.parse(decodeURIComponent(localStorage.getItem('audio')));
+		document.getElementById('audio').src = storage.source;
+		document.getElementById('audio').type = storage.audioType;
+		document.getElementById('audio').loop = storage.loop;
+		audioModule.audioDefault();
+		document.getElementById('inventory').style.display = 'table';
+		document.getElementById('menu').style.display = 'inline';
+		document.getElementById('canvas').style.display = 'inline';
+		document.getElementById('player').style.display = 'inline';
+		document.getElementById('startNew').style.display = 'none';
+		document.getElementById('continue').style.display = 'none';
+		document.getElementById('autoSaveCheckbox').style.display = 'none';
+		document.getElementById('autoSaveText').style.display = 'none';
+		document.getElementById('audio').play();
+		gameModule.saveGame();
+		movementModule.changeControlMode('walking');
+		movementModule.getRoom();
 	};
 
 	var start = function() {
@@ -48,15 +70,13 @@ var gameplayModule = (function() {
 		document.getElementById('location').setAttribute('data-location', 'My bedroom');
 		document.getElementById('locate').innerHTML = 'My bedroom';
 		document.getElementById('inventory').style.display = 'table';
-		document.getElementById('location').style.display = 'inline';
-		document.getElementById('locate').style.display = 'inline';
 		document.getElementById('menu').style.display = 'inline';
 		document.getElementById('canvas').style.display = 'inline';
 		document.getElementById('player').style.display = 'inline';
 		document.getElementById('startNew').style.display = 'none';
 		document.getElementById('continue').style.display = 'none';
 		document.getElementById('autoSaveCheckbox').style.display = 'none';
-		document.getElementById('autoSave').style.display = 'none';
+		document.getElementById('autoSaveText').style.display = 'none';
 		gameModule.saveGame();
 		audioModule.startAudio('Home', '.mp3', true);
 		audioModule.audioDefault();

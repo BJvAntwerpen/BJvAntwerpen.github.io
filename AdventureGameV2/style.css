@@ -144,7 +144,7 @@ section {
 	height: 25px;
 }
 
-#autoSave {
+#autoSaveText {
 	position: absolute;
 	top: 72%;
 	left: 47%;
@@ -348,17 +348,6 @@ div {
 	height: 36.4px;
 	top: 76%;
 	left: 21%;
-}
-
-#test {
-	display: inline/*!important*/;
-	background: url("img/misc/spr_spiketilebg_0.png");
-	background-size: 33% 50%;
-	width: 166px;
-	height: 88px;
-	top: 76.2%;
-	left: 59.0%;
-	border: 1px solid white;
 }
 /*end div*/
 

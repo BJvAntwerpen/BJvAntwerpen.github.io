@@ -103,13 +103,23 @@ var gameModule = (function() {
 			}
 		}
 		localStorage.setItem('saved', 'true');
+		localStorage.setItem('autoSave', document.getElementById('autoSaveCheckbox').className);
+		localStorage.setItem('location', encodeURIComponent(JSON.stringify(document.getElementById('location').getAttribute('data-location'))));
+		localStorage.setItem('position', encodeURIComponent(JSON.stringify({X:document.getElementById('player').style.left,Y:document.getElementById('player').style.top})));
+		localStorage.setItem('direction', (document.getElementById('player').style.backgroundImage).charAt(34));
+		localStorage.setItem('bg', encodeURIComponent(JSON.stringify(document.getElementById('bg').style.backgroundImage)));
+		localStorage.setItem('audio', encodeURIComponent(JSON.stringify({source:document.getElementById('audio').src,audioType:document.getElementById('audio').type,loop:document.getElementById('audio').loop})));
 	};
 
 	var testSave = function() {
 		var saved = localStorage.getItem('saved');
-		//console.log(cookie);
 		if (saved !== 'true') {
 			document.getElementById('continue').className += ' no-save';
+		}
+		saved = localStorage.getItem('autoSave');
+		if (saved !== null) {
+			document.getElementById('autoSaveCheckbox').className = saved;
+			document.getElementById('autoSaveText').innerHTML = 'Auto-save: ' + saved;
 		}
 	};
 
