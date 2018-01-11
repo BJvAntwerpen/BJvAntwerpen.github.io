@@ -51,6 +51,7 @@ var gameplayModule = (function() {
 		document.getElementById('player').style.backgroundImage = 'url(img/player/Asriel/spr_asriel_'+storage+'_0.png)';
 		storage = JSON.parse(decodeURIComponent(localStorage.getItem('location')));
 		document.getElementById('location').setAttribute('data-location', storage);
+		startupImg(storage);
 		storage = JSON.parse(decodeURIComponent(localStorage.getItem('audio')));
 		document.getElementById('audio').src = storage.source;
 		document.getElementById('audio').type = storage.audioType;
@@ -74,6 +75,45 @@ var gameplayModule = (function() {
 		gameModule.saveGame();
 		movementModule.changeControlMode('walking');
 		movementModule.getRoom();
+	};
+
+	var startupImg = function(location) {
+		switch(location) {
+			case 'Kitchen':
+				document.getElementById('pie').style.display = 'inline';
+				break;
+			case 'Mom\'s bedroom':
+				document.getElementById('cactus').style.display = 'inline';
+				break;
+			case 'Stairway':
+				document.getElementById('misc').style.display = "inline";
+				document.getElementById('misc').style.backgroundImage = 'url(img/misc/spr_railingpieceshort.png)';
+				document.getElementById('misc').style.width = '18px';
+				document.getElementById('misc').style.height = '138px';
+				document.getElementById('misc').style.top = '34.5%';
+				document.getElementById('misc').style.left = '62.9%';
+				break;
+			case 'livingRoom':
+				document.getElementById('homeFlame').style.backgroundImage = "url('img/animate/spr_homeflame_0.png')";
+				flameInterval = setInterval(gameModule.changeFlame,140);
+				document.getElementById('homeFlame').style.display = 'inline';
+				document.getElementById('torielReading').style.display = 'inline';
+				document.getElementById('table').style.display = 'inline';
+				document.getElementById('leftchair').style.display = 'inline';
+				document.getElementById('topchair').style.display = 'inline';
+				document.getElementById('rightchair').style.display = 'inline';
+				break;
+			case 'Tree':
+				document.getElementById('tree').style.display = 'inline';
+				document.getElementById('misc').style.display = "inline";
+				document.getElementById('misc').style.backgroundImage = 'url(img/misc/spr_nastytreebottom.png)';
+				document.getElementById('misc').style.width = '240px';
+				document.getElementById('misc').style.height = '120px';
+				document.getElementById('misc').style.top = '36.4%';
+				document.getElementById('misc').style.left = '42.4%';
+				document.getElementById('misc').style.zIndex = '200';
+				break;
+		}
 	};
 
 	var start = function() {
