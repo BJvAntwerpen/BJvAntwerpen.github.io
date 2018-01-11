@@ -75,7 +75,7 @@ var gameModule = (function() {
 					movementModule.transRoom(2);
 					break;
 				case 'getPie':
-					gameplayModule.getItem('pie');
+					gameplayModule.getItem('pieslice');
 					gameWalls.Kitchen.interactions[0].args = [dialogs.takenPie]
 					break;
 				case 'toyKnife':
@@ -102,6 +102,12 @@ var gameModule = (function() {
 				}
 			}
 		}
+		var cells = document.getElementsByTagName('td');
+		var items = [];
+		for (i = 0; i < cells.length; i++) {
+			items.push(cells[i].getAttribute('data-item'));
+		}
+		localStorage.setItem('inv', encodeURIComponent(JSON.stringify(items)));
 		localStorage.setItem('saved', 'true');
 		localStorage.setItem('autoSave', document.getElementById('autoSaveCheckbox').className);
 		localStorage.setItem('location', encodeURIComponent(JSON.stringify(document.getElementById('location').getAttribute('data-location'))));

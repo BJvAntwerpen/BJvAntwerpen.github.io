@@ -32,6 +32,11 @@ var gameplayModule = (function() {
 			}
 			storage = JSON.parse(decodeURIComponent(storage));
 			gameWalls[name] = storage;
+			if (name === 'Kitchen') {
+				if (gameWalls.Kitchen.interactions[0].args[0].Extra == undefined) {
+					document.getElementById('pie').style.backgroundImage = 'url(img/misc/spr_bigpie_1.png)';
+				}
+			}
 			//console.log('name');
 			//console.log(name);MyBedroom
 			//console.log('gameWalls[name]');
@@ -51,6 +56,12 @@ var gameplayModule = (function() {
 		document.getElementById('audio').type = storage.audioType;
 		document.getElementById('audio').loop = storage.loop;
 		audioModule.audioDefault();
+		storage = JSON.parse(decodeURIComponent(localStorage.getItem('inv')));
+		var cells = document.getElementsByTagName('td');
+		for (var i = 0; i < cells.length; i++) {
+			cells[i].setAttribute('data-item',storage[i]);
+			cells[i].className = 'inactive ' + storage[i];
+		}
 		document.getElementById('inventory').style.display = 'table';
 		document.getElementById('menu').style.display = 'inline';
 		document.getElementById('canvas').style.display = 'inline';
@@ -314,7 +325,7 @@ var gameplayModule = (function() {
 			if (collectItem == 'no_item') {
 				td[i].setAttribute('data-item', item);
 				switch(item) {
-					case 'pie':
+					case 'pieslice':
 						td[i].className += ' pieslice';
 						document.getElementById('pie').style.backgroundImage = 'url(img/misc/spr_bigpie_1.png)';
 						break;

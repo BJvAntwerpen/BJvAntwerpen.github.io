@@ -138,6 +138,7 @@ var dialogModule = (function() {
 
 	var extraToDialog = function() {
 		var extraEvent = saveDialog.Extra;
+		console.log(extraEvent);
 		for (var i = 0; i < extraEvent.length; i++) {
 			switch(extraEvent[i]) {
 				case 'glasses':
@@ -195,6 +196,7 @@ var dialogModule = (function() {
 	var afterDialog = function() {
 		gameModule.activateEvents(bonus);
 		bonus = [];
+		document.getElementById('torielGlasses').style.display = "none";
 		movementModule.changeControlMode('walking');
 	};
 
