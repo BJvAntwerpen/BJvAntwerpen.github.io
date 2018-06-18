@@ -330,14 +330,14 @@ var movementModule = (function(){
 	};
 
 	var movePlayer = function(press) {
-		console.log(press.keyCode);
+		console.log(press.keyCode || press.which);
 		if (press.keyCode === 80) {
 			audioModule.stopAudio();
-		} else if (press.keyCode === 74) {
+		} else if (press.keyCode === 74 || press.which === 74) {
 			changeMode('dev');
-		} else if (press.keyCode === 75) {
+		} else if (press.keyCode === 75 || press.which === 75) {
 			changeMode('player');
-		} else if (press.keyCode === 67) {
+		} else if (press.keyCode === 67 || press.which === 67) {
 			if (controlMode === 'walking') {
 				cell = 0;
 				changeControlMode('inv');
@@ -347,7 +347,7 @@ var movementModule = (function(){
 			}
 		}
 		playerData.keys = (playerData.keys || []);
-		playerData.keys[press.keyCode] = true;
+		playerData.keys[press.keyCode || press.which] = true;
 	};
 
 	var menuControl = function() {
