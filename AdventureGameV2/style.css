@@ -230,7 +230,7 @@ section {
 	left: 15.7%;
 	width: 1052px;
 	height: 100%;
-	z-index: 50!important;
+	z-index: 5000!important;
 	background: rgba(0,0,0,0);
 	background-size: 1049px 732px;
 	display: inline;
