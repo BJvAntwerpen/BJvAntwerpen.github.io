@@ -142,6 +142,17 @@ var gameModule = (function() {
 			}
 		}
 	};
+
+	var browserTestDialogBox = function() {
+		var dialogBoxes = document.getElementsByClassName('dialogBox');
+		dialogBoxes[0].show();
+		if (dialogBoxes[0].open) {
+			console.log('dialog');
+		} else {
+			console.log('section');
+		}
+		dialogBoxes[0].close();
+	};
 	
 	var init = function() {
 		console.log('init');
@@ -151,6 +162,7 @@ var gameModule = (function() {
 		window.addEventListener('keyup', function(event) { movementModule.stopPlayer(event); } );
 		document.getElementById('audio').onended = function() { audioModule.setDefault() };
 		document.getElementsByClassName('dialogBox')[1].style.display = 'none';
+		browserTestDialogBox();
 		testSave();
 		positionStyle();
 	}();

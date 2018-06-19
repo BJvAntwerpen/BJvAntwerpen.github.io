@@ -27,7 +27,6 @@ var dialogModule = (function() {
 				startDialogBox(saveDialog);
 			} else {
 				showDialogBox('close');
-				//dialogBox.box.close();
 				saveDialog.Count = 0;
 				Counted = 0;
 				afterDialog();
@@ -113,7 +112,6 @@ var dialogModule = (function() {
 		dialogBox.talker = saveDialog.Talker[Counted];
 		setDialogBox(saveDialog.Side);
 		showDialogBox('open');
-		//dialogBox.box.show();
 		var i = 0;
 		var j = 0;
 		var interval = setInterval(function() {
@@ -213,10 +211,6 @@ var dialogModule = (function() {
 		}
 	};
 
-	var browserTestDialogBox = function() {
-
-	};
-
 	var afterDialog = function() {
 		gameModule.activateEvents(bonus);
 		bonus = [];
@@ -228,8 +222,7 @@ var dialogModule = (function() {
 		startDialogBox: startDialogBox,
 		dialogBoxDisplay: dialogBoxDisplay,
 		setDialogBox: setDialogBox,
-		dialogBoxSkip: dialogBoxSkip,
-		browserTestDialogBox: browserTestDialogBox
+		dialogBoxSkip: dialogBoxSkip
 	};
 })();
 //console.log
