@@ -150,6 +150,7 @@ var gameModule = (function() {
 		window.addEventListener('keydown', function(event) { movementModule.movePlayer(event); } );
 		window.addEventListener('keyup', function(event) { movementModule.stopPlayer(event); } );
 		document.getElementById('audio').onended = function() { audioModule.setDefault() };
+		document.getElementsByClassName('dialogBox')[1].style.display = 'none';
 		testSave();
 		positionStyle();
 	}();

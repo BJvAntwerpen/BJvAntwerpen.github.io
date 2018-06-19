@@ -46,8 +46,17 @@ td {
 	background-color: rgba(175, 175, 175, 0.5);
 }
 
-section {
+section section, dialog section {
 	display: inline-block;
+}
+
+section.dialogBox {
+	left: 18.5%;
+	display: none;
+}
+
+dialog.dialogBox {
+	left: 0%;
 }
 
 #menu {
@@ -68,7 +77,6 @@ section {
 	height: 150px;
 	position: absolute;
 	top: 1%;
-	left: 0%;
 	background-color: black;
 	border: 2px solid white;
 	color: white;

@@ -834,10 +834,10 @@ var movementModule = (function(){
 
 	var checkDialogbox = function() {
 		var check = document.getElementById('activeDialogBox');
-		if (check.open === true) {
+		if (check.open === true || check.style.display === 'inline-block') {
 			dialogbox = 'open';
 			return true;
-		} else if (check.open === false) {
+		} else if (check.open === false || check.style.display === 'none') {
 			dialogbox = 'closed';
 			return false;
 		}

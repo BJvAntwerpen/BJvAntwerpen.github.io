@@ -1,10 +1,11 @@
 var dialogModule = (function() {
 	var dialogBox = {
-		box: document.getElementsByClassName('dialogBox')[0],
-		img: document.getElementsByClassName('textFace')[0],
-		text: document.getElementsByClassName('dialogText')[0],
-		torielGlasses: document.getElementsByClassName('torielGlasses')[0],
-		talker: ''
+		box: document.getElementsByClassName('dialogBox')[1],
+		img: document.getElementsByClassName('textFace')[1],
+		text: document.getElementsByClassName('dialogText')[1],
+		torielGlasses: document.getElementsByClassName('torielGlasses')[1],
+		talker: '',
+		usingDialog: false
 	};
 	var saveDialog = {};
 	var tmpValues = {
@@ -25,7 +26,8 @@ var dialogModule = (function() {
 				Counted++;
 				startDialogBox(saveDialog);
 			} else {
-				dialogBox.box.close();
+				showDialogBox('close');
+				//dialogBox.box.close();
 				saveDialog.Count = 0;
 				Counted = 0;
 				afterDialog();
@@ -110,7 +112,8 @@ var dialogModule = (function() {
 		var resText = saveDialog.Text[Counted].split('<br>');
 		dialogBox.talker = saveDialog.Talker[Counted];
 		setDialogBox(saveDialog.Side);
-		dialogBox.box.show();
+		showDialogBox('open');
+		//dialogBox.box.show();
 		var i = 0;
 		var j = 0;
 		var interval = setInterval(function() {
@@ -194,7 +197,25 @@ var dialogModule = (function() {
 		}
 	};
 
-	var browserTestDialogBox = function() {};
+	var showDialogBox = function(state) {
+		if (state == 'open') {
+			if (dialogBox.usingDialog) {
+				dialogBox.box.show();
+			} else {
+				dialogBox.box.style.display = 'inline-block';
+			}
+		} else if (state == 'close') {
+			if (dialogBox.usingDialog) {
+				dialogBox.box.close();
+			} else {
+				dialogBox.box.style.display = 'none';
+			}
+		}
+	};
+
+	var browserTestDialogBox = function() {
+
+	};
 
 	var afterDialog = function() {
 		gameModule.activateEvents(bonus);
