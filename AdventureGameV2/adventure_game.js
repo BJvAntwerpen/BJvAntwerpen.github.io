@@ -147,8 +147,8 @@ var gameModule = (function() {
 		console.log('init');
 		zIndexSetting();
 		//events that do not change
-		window.addEventListener('keydown', function() { movementModule.movePlayer(event); } );
-		window.addEventListener('keyup', function() { movementModule.stopPlayer(event); } );
+		window.addEventListener('keydown', function(event) { movementModule.movePlayer(event); } );
+		window.addEventListener('keyup', function(event) { movementModule.stopPlayer(event); } );
 		document.getElementById('audio').onended = function() { audioModule.setDefault() };
 		testSave();
 		positionStyle();
