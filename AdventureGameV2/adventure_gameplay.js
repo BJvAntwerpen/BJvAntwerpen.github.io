@@ -71,6 +71,7 @@ var gameplayModule = (function() {
 		document.getElementById('continue').style.display = 'none';
 		document.getElementById('autoSaveCheckbox').style.display = 'none';
 		document.getElementById('autoSaveText').style.display = 'none';
+		document.getElementById('coords').innerHTML = 'P to stop audio';
 		document.getElementById('audio').play();
 		gameModule.saveGame();
 		movementModule.changeControlMode('walking');
@@ -128,6 +129,7 @@ var gameplayModule = (function() {
 		document.getElementById('continue').style.display = 'none';
 		document.getElementById('autoSaveCheckbox').style.display = 'none';
 		document.getElementById('autoSaveText').style.display = 'none';
+		document.getElementById('coords').innerHTML = 'P to stop audio';
 		gameModule.saveGame();
 		audioModule.startAudio('Home', '.mp3', true);
 		audioModule.audioDefault();

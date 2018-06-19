@@ -1,11 +1,11 @@
 var dialogModule = (function() {
 	var dialogBox = {
-		box: document.getElementsByClassName('dialogBox')[1],
-		img: document.getElementsByClassName('textFace')[1],
-		text: document.getElementsByClassName('dialogText')[1],
-		torielGlasses: document.getElementsByClassName('torielGlasses')[1],
+		box: 'box',
+		img: 'img',
+		text: 'txt',
+		torielGlasses: 'my child',
 		talker: '',
-		usingDialog: false
+		usingDialog: ''
 	};
 	var saveDialog = {};
 	var tmpValues = {
@@ -211,6 +211,36 @@ var dialogModule = (function() {
 		}
 	};
 
+	var browserTestDialogBox = function() {
+		var dialogBoxes = document.getElementsByClassName('dialogBox');
+		dialogBoxes[0].show();
+		if (dialogBoxes[0].open) {
+			console.log('dialog');
+			dialogBox = {
+				box: document.getElementsByClassName('dialogBox')[0],
+				img: document.getElementsByClassName('textFace')[0],
+				text: document.getElementsByClassName('dialogText')[0],
+				torielGlasses: document.getElementsByClassName('torielGlasses')[0],
+				talker: '',
+				usingDialog: true
+			};
+			dialogBoxes[0].id = 'activeDialogBox';
+		} else {
+			console.log('section');
+			dialogBox = {
+				box: document.getElementsByClassName('dialogBox')[1],
+				img: document.getElementsByClassName('textFace')[1],
+				text: document.getElementsByClassName('dialogText')[1],
+				torielGlasses: document.getElementsByClassName('torielGlasses')[1],
+				talker: '',
+				usingDialog: false
+			};
+			dialogBoxes[1].id = 'activeDialogBox';
+			document.getElementById('coords').innerHTML = 'You are using the \'crappy\' version of the dialog box<br>If you are using firefox, enable it ("dom.dialog_element.enabled" in about:config)';
+		}
+		dialogBoxes[0].close();
+	};
+
 	var afterDialog = function() {
 		gameModule.activateEvents(bonus);
 		bonus = [];
@@ -222,7 +252,8 @@ var dialogModule = (function() {
 		startDialogBox: startDialogBox,
 		dialogBoxDisplay: dialogBoxDisplay,
 		setDialogBox: setDialogBox,
-		dialogBoxSkip: dialogBoxSkip
+		dialogBoxSkip: dialogBoxSkip,
+		browserTestDialogBox: browserTestDialogBox
 	};
 })();
 //console.log
