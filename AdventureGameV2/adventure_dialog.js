@@ -3,6 +3,7 @@ var dialogModule = (function() {
 		box: document.getElementById('dialogBox'),
 		img: document.getElementById('textFace'),
 		text: document.getElementById('dialogText'),
+		torielGlasses: document.getElementById('torielGlasses'),
 		talker: ''
 	};
 	var saveDialog = {};
@@ -143,9 +144,9 @@ var dialogModule = (function() {
 			switch(extraEvent[i]) {
 				case 'glasses':
 					if (saveDialog.Talker[Counted] == "Toriel") {
-						document.getElementById('torielGlasses').style.display = "inline";
+						dialogBox.torielGlasses.style.display = "inline";
 					} else {
-						document.getElementById('torielGlasses').style.display = "none";
+						dialogBox.torielGlasses.style.display = "none";
 					}
 					break;
 				case 'actionAskKey':
@@ -177,7 +178,7 @@ var dialogModule = (function() {
 					bonus.push('toyKnife');
 					break;
 				default:
-					document.getElementById('torielGlasses').style.display = "none";
+					dialogBox.torielGlasses.style.display = "none";
 			}
 		}
 	};
@@ -193,10 +194,12 @@ var dialogModule = (function() {
 		}
 	};
 
+	var browserTestDialogBox = function() {};
+
 	var afterDialog = function() {
 		gameModule.activateEvents(bonus);
 		bonus = [];
-		document.getElementById('torielGlasses').style.display = "none";
+		dialogBox.torielGlasses.style.display = "none";
 		movementModule.changeControlMode('walking');
 	};
 
@@ -204,7 +207,8 @@ var dialogModule = (function() {
 		startDialogBox: startDialogBox,
 		dialogBoxDisplay: dialogBoxDisplay,
 		setDialogBox: setDialogBox,
-		dialogBoxSkip: dialogBoxSkip
+		dialogBoxSkip: dialogBoxSkip,
+		browserTestDialogBox: browserTestDialogBox
 	};
 })();
 //console.log

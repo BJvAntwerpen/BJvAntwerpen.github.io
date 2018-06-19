@@ -63,7 +63,7 @@ section {
 	left: 2%;
 }
 
-#dialogBox {
+.dialogBox {
 	width: 960px;
 	height: 150px;
 	position: absolute;
@@ -151,7 +151,7 @@ section {
 	z-index: 1000;
 }
 
-#dialogText {
+.dialogText {
 	position: absolute;
 	left: 190px;
 	width: 800px;
@@ -159,7 +159,7 @@ section {
 	padding: 4px 1px 0 5px;
 }
 
-#textFace {
+.textFace {
 	background: #000 url("") no-repeat center;
 	width: 150px;
 	height: 150px;
@@ -167,7 +167,7 @@ section {
 	right: 10px;
 }
 
-#torielGlasses {
+.torielGlasses {
 	background: #000 url("img/misc/spr_torielglasses.png");
 	background-size: 100% 100%;
 	position: absolute;
@@ -180,29 +180,8 @@ section {
 
 }
 
-.btnHor {
-	width: 160px;
-	height: 80px;
-}
-
-.btnVer {
-	width: 80px;
-	height: 160px;
-}
-
-.btnRound {
-	width: 100px;
-	height: 100px;
-}
-
-.btnRoundBig {
-	width: 150px;
-	height: 150px;
-}
-
 /*div*/
 #player {
-	cursor: default;
 	background: url('img/player/Asriel/spr_asriel_d_0.png') no-repeat center;
 	background-size: 100% 100%;
 	width: 55px;
@@ -212,7 +191,6 @@ section {
 }
 
 #bg {
-	cursor: default;
 	top: 0%;
 	left: 15.7%;
 	width: 1052px;
@@ -224,7 +202,6 @@ section {
 }
 
 #trans {
-	cursor: default;
 	top: 0%;
 	left: 15.7%;
 	width: 1052px;
@@ -477,8 +454,4 @@ button, label, input {
 	left: 1320px;
 	width: 170px;
 	height: 30px;
-}
-
-.disabled {
-	cursor: not-allowed;
 }
