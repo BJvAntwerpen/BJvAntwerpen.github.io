@@ -833,7 +833,7 @@ var movementModule = (function(){
 	};
 
 	var checkDialogbox = function() {
-		var check = document.getElementById('dialogBox');
+		var check = document.getElementById('activeDialogBox');
 		if (check.open === true) {
 			dialogbox = 'open';
 			return true;
