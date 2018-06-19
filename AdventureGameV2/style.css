@@ -4,8 +4,7 @@
 }
 
 body {
-	background: #000 url("") no-repeat fixed center;
-	background-size: 1050px 735px;
+	background-color: black;
 	font-family: UndertaleFont;
 	font-size: 24px;
 	color: white;
@@ -15,7 +14,7 @@ body {
 canvas {
 	position: absolute;
 	top: 0%;
-	left: 242px;
+	left: 15.7%;
 	z-index: -1;
 }
 
