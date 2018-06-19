@@ -1,9 +1,9 @@
 var dialogModule = (function() {
 	var dialogBox = {
-		box: document.getElementById('dialogBox'),
-		img: document.getElementById('textFace'),
-		text: document.getElementById('dialogText'),
-		torielGlasses: document.getElementById('torielGlasses'),
+		box: document.getElementsByClassName('dialogBox')[0],
+		img: document.getElementsByClassName('textFace')[0],
+		text: document.getElementsByClassName('dialogText')[0],
+		torielGlasses: document.getElementsByClassName('torielGlasses')[0],
 		talker: ''
 	};
 	var saveDialog = {};
